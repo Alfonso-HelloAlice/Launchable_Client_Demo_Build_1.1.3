@@ -2,6 +2,9 @@
  * Copyright (c) 2012-2015 Qualcomm Connected Experiences, Inc. All Rights Reserved. 
  * ==============================================================================*/
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
 using Vuforia;
 
 /// <summary>
@@ -14,6 +17,10 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     private bool mHasBeenFound = false;
     private bool mLostTracking;
     private float mSecondsSinceLost;
+
+	public bool animationTrigger;
+
+	public string targetName;
     #endregion // PRIVATE_MEMBERS
 
 
@@ -105,6 +112,10 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
         // Optionally play the video automatically when the target is found
 
+		animationTrigger = true;
+		targetName = mTrackableBehaviour.TrackableName;
+		print ("this is the name: " + targetName);
+
         VideoPlaybackBehaviour video = GetComponentInChildren<VideoPlaybackBehaviour>();
         if (video != null && video.AutoPlay)
         {
@@ -138,6 +149,8 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     private void OnTrackingLost()
     {
+		StartCoroutine (waiting ());
+
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
 		Canvas [] canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -160,6 +173,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
             component.enabled = false;
         }
 
+		animationTrigger = false;
 
         mLostTracking = true;
         mSecondsSinceLost = 0;
@@ -183,4 +197,10 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         }
     }
     #endregion //PRIVATE_METHODS
+
+	IEnumerator waiting(){
+
+		yield return new WaitForSeconds (2);
+	}
+
 }

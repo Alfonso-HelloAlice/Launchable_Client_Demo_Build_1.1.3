@@ -118,6 +118,7 @@
 'Assets/Common/SplashAbout/LoadingScreen.cs'
 'Assets/Common/TapHandler.cs'
 'Assets/Common/TrackableSettings.cs'
+'Assets/Scripts/Features/animationForNow.cs'
 'Assets/Scripts/Features/coaching.cs'
 'Assets/Scripts/Features/flashLightController.cs'
 'Assets/Scripts/Features/phoneEmailWeb.cs'
