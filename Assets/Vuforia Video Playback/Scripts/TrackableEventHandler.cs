@@ -6,6 +6,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using Vuforia;
+using UnityEngine.UI;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -18,15 +19,23 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     private bool mLostTracking;
     private float mSecondsSinceLost;
 
-	public bool animationTrigger;
+	public Button bt1;
+	public Button bt2;
 
-	public string targetName;
+	private Animator ph;
+	private Animator em;
+
+	private bool testing;
+
     #endregion // PRIVATE_MEMBERS
 
 
     #region MONOBEHAVIOUR_METHODS
     void Start()
     {
+		ph = bt1.gameObject.GetComponent<Animator> ();
+		em = bt2.gameObject.GetComponent<Animator> ();
+
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
         {
@@ -86,6 +95,12 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
+		testing = GameObject.FindObjectOfType<screenShotSharing> ().noAnimation;
+		print ("this is current value from other " + testing);
+
+		ph.Play ("phoneAnimation", -1, 0f);
+		em.Play ("emailAnimation", -1, 0f);
+
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
 		Canvas [] canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -111,10 +126,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
         // Optionally play the video automatically when the target is found
-
-		animationTrigger = true;
-		targetName = mTrackableBehaviour.TrackableName;
-		print ("this is the name: " + targetName);
 
         VideoPlaybackBehaviour video = GetComponentInChildren<VideoPlaybackBehaviour>();
         if (video != null && video.AutoPlay)
@@ -143,13 +154,24 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
             }
         }
 
+		if (testing == false) {
+			ph.gameObject.SetActive (true);
+			em.gameObject.SetActive (true);
+
+			ph.Play ("phoneAnimation");
+			em.Play ("emailAnimation");
+		} else if (testing == true) {
+			ph.gameObject.SetActive (false);
+			em.gameObject.SetActive (false);
+		}
+
+
         mHasBeenFound = true;
         mLostTracking = false;
     }
 
     private void OnTrackingLost()
     {
-		StartCoroutine (waiting ());
 
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
@@ -172,8 +194,9 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         {
             component.enabled = false;
         }
-
-		animationTrigger = false;
+			
+		ph.Play ("phoneAnimation", -1, 0f);
+		em.Play ("emailAnimation", -1, 0f);
 
         mLostTracking = true;
         mSecondsSinceLost = 0;
@@ -198,9 +221,5 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     }
     #endregion //PRIVATE_METHODS
 
-	IEnumerator waiting(){
-
-		yield return new WaitForSeconds (2);
-	}
 
 }

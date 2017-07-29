@@ -1,0 +1,19 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="phoneEmailWeb">
+			<method name="Alfred_LaunchablePhoneNumber"/>
+			<method name="Alfred_Email"/>
+		</type>
+		<type fullname="screenShotSharing">
+			<method name="backToInterface"/>
+			<method name="takeOutButtonFirst"/>
+			<method name="savePicToGallery"/>
+			<method name="captureScreen"/>
+			<method name="postTextureTwitter"/>
+			<method name="postTextureFB"/>
+		</type>
+		<type fullname="flashLightController">
+			<method name="ToggleTorch"/>
+		</type>
+	</assembly>
+</linker>

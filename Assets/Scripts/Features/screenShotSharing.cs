@@ -35,6 +35,8 @@ public class screenShotSharing : MonoBehaviour {
 	private Texture2D screenCap;
 	private Texture2D border;
 
+	public bool noAnimation;
+
 //	analyticsController analyticsControl;
 			
 	/* --------------------------------------------------------------------------------------------------------- */
@@ -124,6 +126,7 @@ public class screenShotSharing : MonoBehaviour {
 	// catch the screen shot and load it to the screen
 	public void captureScreen()
 	{
+		noAnimation = true;
 		StartCoroutine ("Capture");
 	}
 
@@ -195,6 +198,7 @@ public class screenShotSharing : MonoBehaviour {
 		facebook.gameObject.SetActive (false);
 		twitter.gameObject.SetActive (false);
 
+		noAnimation = false;
 	}
 
 	// facebook sharing

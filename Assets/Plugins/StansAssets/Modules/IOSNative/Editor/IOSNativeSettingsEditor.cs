@@ -52,9 +52,7 @@ public class IOSNativeSettingsEditor : Editor {
 
 	private static string ISN_MediaController_Path 			= ISN_SCRIPTS + "Media/MediaPlayer/Controllers/ISN_MediaController.cs";
 
-	private static string ISN_UserNotificationsNativeReceiver_Path = ISN_SCRIPTS + "Messaging/UserNotifications/Controllers/NativeReceiver.cs";
-	private static string ISN_UserNotificationsNotificationCenter_Path = ISN_SCRIPTS + "Messaging/UserNotifications/Controllers/NotificationCenter.cs";
-
+	private static string ISN_UserNotifications_Path 		= ISN_SCRIPTS + "Messaging/UserNotifications/Controllers/NativeReceiver.cs";
 
 	private static string ISN_CloudKit_Path 				= ISN_SCRIPTS + "iCloud/Controllers/ISN_CloudKit.cs";
 	private static string ISN_GestureRecognizer_Path 		= ISN_SCRIPTS + "System/Gestures/ISN_GestureRecognizer.cs";
@@ -1539,9 +1537,7 @@ public class IOSNativeSettingsEditor : Editor {
 
 
 		SA.Common.Editor.Tools.ChnageDefineState(ISN_ContactStore_Path, 			"CONTACTS_API_ENABLED", Settings.EnableContactsAPI);
-		SA.Common.Editor.Tools.ChnageDefineState(ISN_UserNotificationsNativeReceiver_Path, "USER_NOTIFICATIONS_API", Settings.EnableUserNotificationsAPI);
-		SA.Common.Editor.Tools.ChnageDefineState(ISN_UserNotificationsNotificationCenter_Path, "USER_NOTIFICATIONS_API", Settings.EnableUserNotificationsAPI);
-
+		SA.Common.Editor.Tools.ChnageDefineState(ISN_UserNotifications_Path, 			"USER_NOTIFICATIONS_API", Settings.EnableUserNotificationsAPI);
 		SA.Common.Editor.Tools.ChnageDefineState(ISN_AppController_Path, 			"APP_CONTROLLER_ENABLED", Settings.EnableAppEventsAPI);
 		SA.Common.Editor.Tools.ChnageDefineState(ISN_PermissionsManager_Path, 			"PERMISSIONS_API_ENABLED", Settings.EnablePermissionAPI);
 
