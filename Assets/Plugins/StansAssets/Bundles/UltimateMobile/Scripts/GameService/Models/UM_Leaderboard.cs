@@ -24,7 +24,7 @@ public class UM_Leaderboard  {
 	
 	private GK_Leaderboard gk_Leaderboard;
 	private GPLeaderBoard gp_Leaderboard;
-	private GC_Leaderboard gc_Leaderboard;
+//	private GC_Leaderboard gc_Leaderboard;
 	//--------------------------------------
 	// PUBLIC METHODS
 	//--------------------------------------
@@ -37,18 +37,18 @@ public class UM_Leaderboard  {
 		gk_Leaderboard = gkLeaderboard;
 	}
 
-	public void Setup(GC_Leaderboard gcLeaderboard) {
-		gc_Leaderboard = gcLeaderboard;
-	}
+//	public void Setup(GC_Leaderboard gcLeaderboard) {
+//		gc_Leaderboard = gcLeaderboard;
+//	}
 	
 	public bool IsValid {
 		get {
 			switch (Application.platform) {
 			case RuntimePlatform.Android:
-				if(UltimateMobileSettings.Instance.PlatformEngine.Equals(UM_PlatformDependencies.Android))
+//				if(UltimateMobileSettings.Instance.PlatformEngine.Equals(UM_PlatformDependencies.Android))
 					return gp_Leaderboard != null;
-				else
-					return gc_Leaderboard != null;
+//				else
+//					return gc_Leaderboard != null;
 			case RuntimePlatform.IPhonePlayer:
 				return gk_Leaderboard != null;
 			}
@@ -65,19 +65,20 @@ public class UM_Leaderboard  {
 				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
 					GPScore gp = gp_Leaderboard.GetScore (rank, scope.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
 					if (gp != null) {
-						umScore = new UM_Score (null, gp, null);
-					}
-				} else {
-					GC_Score gc = gc_Leaderboard.GetScore(rank, scope.Get_GC_TimeSpan());
-					if (gc != null) {
-						umScore = new UM_Score(null, null, gc);
+						umScore = new UM_Score (null, gp);
 					}
 				}
+//				} else {
+////					GC_Score gc = gc_Leaderboard.GetScore(rank, scope.Get_GC_TimeSpan());
+//					if (gc != null) {
+//						umScore = new UM_Score(null, null, gc);
+//					}
+
 				break;
 			case RuntimePlatform.IPhonePlayer:
 				GK_Score gk = gk_Leaderboard.GetScore(rank, scope.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
 				if (gk != null) {
-					umScore = new UM_Score(gk, null, null);
+					umScore = new UM_Score(gk, null);
 				}
 				break;
 			}
@@ -92,23 +93,24 @@ public class UM_Leaderboard  {
 		if (IsValid) {
 			switch (Application.platform) {
 			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
-					List<GPScore> gp = gp_Leaderboard.GetScoresList (span.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
-					foreach (GPScore score in gp) {
-						scores.Add (new UM_Score (null, score, null));
-					}
-					return scores;
-				} else {
-					List<GC_Score> gcScores = gc_Leaderboard.GetScoresList(span.Get_GC_TimeSpan());
-					foreach (GC_Score s in gcScores) {
-						scores.Add(new UM_Score(null, null, s));
-					}
-					return scores;
+//				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
+				List<GPScore> gp = gp_Leaderboard.GetScoresList (span.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
+				foreach (GPScore score in gp) {
+					scores.Add (new UM_Score (null, score));
 				}
+				return scores;
+				
+//				} else {
+//					List<GC_Score> gcScores = gc_Leaderboard.GetScoresList(span.Get_GC_TimeSpan());
+//					foreach (GC_Score s in gcScores) {
+//						scores.Add(new UM_Score(null, null, s));
+//					}
+//					return scores;
+
 			case RuntimePlatform.IPhonePlayer:
 				List<GK_Score> gk = gk_Leaderboard.GetScoresList(span.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
 				foreach (GK_Score score in gk) {
-					scores.Add(new UM_Score(score, null, null));
+					scores.Add(new UM_Score(score, null));
 				}
 				return scores;
 			}
@@ -125,54 +127,56 @@ public class UM_Leaderboard  {
 				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
 					GPScore gp = gp_Leaderboard.GetScoreByPlayerId (playerId, span.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
 					if (gp != null) {
-						umScore = new UM_Score (null, gp, null);
-					}
-				} else {
-					GC_Score gc = gc_Leaderboard.GetScoreByPlayerId(playerId, span.Get_GC_TimeSpan());
-					if (gc != null) {
-						umScore = new UM_Score(null, null, gc);
+						umScore = new UM_Score (null, gp);
 					}
 				}
+//				} else {
+//					GC_Score gc = gc_Leaderboard.GetScoreByPlayerId(playerId, span.Get_GC_TimeSpan());
+//					if (gc != null) {
+//						umScore = new UM_Score(null, null, gc);
+//					}
+
 				break;
-			case RuntimePlatform.IPhonePlayer:
-				GK_Score gk = gk_Leaderboard.GetScoreByPlayerId(playerId, span.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
-				if (gk != null) {
-					umScore = new UM_Score(gk, null, null);
-				}
-				break;
+//			case RuntimePlatform.IPhonePlayer:
+//				GK_Score gk = gk_Leaderboard.GetScoreByPlayerId(playerId, span.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
+//				if (gk != null) {
+//					umScore = new UM_Score(gk, null, null);
+//				}
+//				break;
 			}
 		}
 		return umScore;
 	}
 	
-	public UM_Score GetCurrentPlayerScore(UM_TimeSpan span, UM_CollectionType collection) {
-		UM_Score umScore = null;
-		if (IsValid) {
-			switch (Application.platform) {
-			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
-					GPScore gp = gp_Leaderboard.GetCurrentPlayerScore (span.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
-					if (gp != null) {
-						umScore = new UM_Score (null, gp, null);
-					}
-				} else {
-					GC_Score gc = gc_Leaderboard.GetCurrentPlayerScore(span.Get_GC_TimeSpan());
-					if(gc != null) {
-						umScore = new UM_Score(null, null, gc);
-					}
-				}
-				break;
-			case RuntimePlatform.IPhonePlayer:
-				GK_Score gk = gk_Leaderboard.GetCurrentPlayerScore(span.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
-				if (gk != null) {
-					umScore = new UM_Score(gk, null, null);
-				}
-				break;
-			}
-		}
-		
-		return umScore;
-	}
+//	public UM_Score GetCurrentPlayerScore(UM_TimeSpan span, UM_CollectionType collection) {
+//		UM_Score umScore = null;
+//		if (IsValid) {
+//			switch (Application.platform) {
+//			case RuntimePlatform.Android:
+//				if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
+//					GPScore gp = gp_Leaderboard.GetCurrentPlayerScore (span.Get_GP_TimeSpan (), collection.Get_GP_CollectionType ());
+//					if (gp != null) {
+//						umScore = new UM_Score (null, gp, null);
+//					}
+//				}
+////				} else {
+////					GC_Score gc = gc_Leaderboard.GetCurrentPlayerScore(span.Get_GC_TimeSpan());
+////					if(gc != null) {
+////						umScore = new UM_Score(null, null, gc);
+////					}
+//				}
+//				break;
+//			case RuntimePlatform.IPhonePlayer:
+//				GK_Score gk = gk_Leaderboard.GetCurrentPlayerScore(span.Get_GK_TimeSpan(), collection.Get_GK_CollectionType());
+//				if (gk != null) {
+//					umScore = new UM_Score(gk, null, null);
+//				}
+//				break;
+//			}
+//		}
+//		
+//		return umScore;
+//	}
 	
 	//--------------------------------------
 	// GET / SET
@@ -186,7 +190,7 @@ public class UM_Leaderboard  {
 					if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android))
 						return gp_Leaderboard.Id;
 					else
-						return gc_Leaderboard.Identifier;
+						return "no Amazon";
 				case RuntimePlatform.IPhonePlayer:
 					return gk_Leaderboard.Id;
 				}
@@ -200,10 +204,10 @@ public class UM_Leaderboard  {
 			if (IsValid) {
 				switch (Application.platform) {
 				case RuntimePlatform.Android:
-					if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android))
+//					if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android))
 						return gp_Leaderboard.Name;
-					else
-						return gc_Leaderboard.Title;
+//					else
+//						return gc_Leaderboard.Title;
 				case RuntimePlatform.IPhonePlayer:
 					return gk_Leaderboard.Info.Title;
 				}
@@ -217,11 +221,11 @@ public class UM_Leaderboard  {
 			if (IsValid) {
 				switch (Application.platform) {
 				case RuntimePlatform.Android:
-					if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
+//					if (UltimateMobileSettings.Instance.PlatformEngine.Equals (UM_PlatformDependencies.Android)) {
 						return gp_Leaderboard.CurrentPlayerScoreLoaded;
-					} else {
-						return gc_Leaderboard.CurrentPlayerScoreLoaded;
-					}
+	
+//						return gc_Leaderboard.CurrentPlayerScoreLoaded;
+//					}
 				case RuntimePlatform.IPhonePlayer:
 					return gk_Leaderboard.CurrentPlayerScoreLoaded;
 				}
@@ -242,11 +246,11 @@ public class UM_Leaderboard  {
 		}
 	}
 
-	public GC_Leaderboard AmazonLeaderboard {
-		get {
-			return gc_Leaderboard;
-		}
-	}
+//	public GC_Leaderboard AmazonLeaderboard {
+//		get {
+//			return gc_Leaderboard;
+//		}
+//	}
 	
 	public string Description {
 		get {

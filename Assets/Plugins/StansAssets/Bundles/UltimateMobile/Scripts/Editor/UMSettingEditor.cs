@@ -215,7 +215,7 @@ public class UMSettingEditor : Editor {
 		
 		SA.Common.Util.Files.Write(SA.Common.Config.UM_VERSION_INFO_PATH, UltimateMobileSettings.VERSION_NUMBER);
 		AndroidNativeSettingsEditor.UpdateVersionInfo();
-		GoogleMobileAdSettingsEditor.UpdateVersionInfo ();
+//		GoogleMobileAdSettingsEditor.UpdateVersionInfo ();
 		IOSNativeSettingsEditor.UpdateVersionInfo ();
 		UpdatePluginSettings();
 	}
@@ -307,9 +307,9 @@ public class UMSettingEditor : Editor {
 			Selection.activeObject = IOSNativeSettings.Instance;
 		}
 
-		if(GUILayout.Button("Amazon Settings",  GUILayout.Width(140))) {
-			Selection.activeObject = AmazonNativeSettings.Instance;
-		}
+//		if(GUILayout.Button("Amazon Settings",  GUILayout.Width(140))) {
+//			Selection.activeObject = AmazonNativeSettings.Instance;
+//		}
 
 		EditorGUILayout.EndHorizontal();
 		EditorGUILayout.Space();		
@@ -318,13 +318,13 @@ public class UMSettingEditor : Editor {
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.Space();
 
-		if(GUILayout.Button("WP8 Settings ",  GUILayout.Width(140))) {
-			Selection.activeObject = WP8NativeSettings.Instance;
-		}
+//		if(GUILayout.Button("WP8 Settings ",  GUILayout.Width(140))) {
+//			Selection.activeObject = WP8NativeSettings.Instance;
+//		}
 
-		if(GUILayout.Button("Google Mobile Ad  ",  GUILayout.Width(140))) {
-			Selection.activeObject = GoogleMobileAdSettings.Instance;
-		}
+//		if(GUILayout.Button("Google Mobile Ad  ",  GUILayout.Width(140))) {
+//			Selection.activeObject = GoogleMobileAdSettings.Instance;
+//		}
 
 		if(GUILayout.Button("Google Analytics ",  GUILayout.Width(140))) {
 			Selection.activeObject = SA.Analytics.Google.GA_Settings.Instance;
@@ -481,42 +481,42 @@ public class UMSettingEditor : Editor {
 
 	}
 
-	public static void UpdateAmazonInAppPluginSettings() {
-		if(AmazonNativeSettings.Instance.IsAdvertisingEnabled) {
-			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Advertising_Res")) {
-
-				bool res = EditorUtility.DisplayDialog("Advertising Native Library Not Found!", "Amazon Native wasn't able to locate Advertising Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
-				if(res) {
-					Application.OpenURL(AmazonNativeSettings.Instance.AdvertisingDownloadLink);
-				}
-
-				AmazonNativeSettings.Instance.IsAdvertisingEnabled = false;
-			} 
-			Update_Advertising_State();
-		}
-	} 
-	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// AMAZON 	///// 	///// 	///// 	///// 	///// 	///// 	///// 
-	public static void UpdateGoogleAdAmazonAPI() {
-		if(AmazonNativeSettings.Instance.IsAdvertisingEnabled) {
-			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Advertising_Res")) {
-
-				bool res = EditorUtility.DisplayDialog("Advertising Native Library Not Found!", "Amazon Native wasn't able to locate Advertising Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
-				if(res) {
-					Application.OpenURL(AmazonNativeSettings.Instance.AdvertisingDownloadLink);
-				}
-
-				AmazonNativeSettings.Instance.IsAdvertisingEnabled = false;
-			} 
-			Update_Advertising_State();
-		}
-	} 
+//	public static void UpdateAmazonInAppPluginSettings() {
+//		if(AmazonNativeSettings.Instance.IsAdvertisingEnabled) {
+//			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Advertising_Res")) {
+//
+//				bool res = EditorUtility.DisplayDialog("Advertising Native Library Not Found!", "Amazon Native wasn't able to locate Advertising Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
+//				if(res) {
+//					Application.OpenURL(AmazonNativeSettings.Instance.AdvertisingDownloadLink);
+//				}
+//
+//				AmazonNativeSettings.Instance.IsAdvertisingEnabled = false;
+//			} 
+//			Update_Advertising_State();
+//		}
+//	} 
+//	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// AMAZON 	///// 	///// 	///// 	///// 	///// 	///// 	///// 
+//	public static void UpdateGoogleAdAmazonAPI() {
+//		if(AmazonNativeSettings.Instance.IsAdvertisingEnabled) {
+//			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Advertising_Res")) {
+//
+//				bool res = EditorUtility.DisplayDialog("Advertising Native Library Not Found!", "Amazon Native wasn't able to locate Advertising Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
+//				if(res) {
+//					Application.OpenURL(AmazonNativeSettings.Instance.AdvertisingDownloadLink);
+//				}
+//
+//				AmazonNativeSettings.Instance.IsAdvertisingEnabled = false;
+//			} 
+//			Update_Advertising_State();
+//		}
+//	} 
 
 	private static void Update_Advertising_State() {		
 		string SA_AmazonAdsManager_Path = "Extensions/AmazonNative/Amazon/Manage/SA_AmazonAdsManager.cs";
 		SA.Common.Util.Files.DeleteFile("Plugins/Android/AndroidManifest 1.xml");
 		SA.Common.Util.Files.DeleteFile("Plugins/Android/AndroidManifest 2.xml");
 
-		SA.Common.Editor.Tools.ChnageDefineState(SA_AmazonAdsManager_Path, "AMAZON_ADVERTISING_ENABLED", AmazonNativeSettings.Instance.IsAdvertisingEnabled);
+//		SA.Common.Editor.Tools.ChnageDefineState(SA_AmazonAdsManager_Path, "AMAZON_ADVERTISING_ENABLED", AmazonNativeSettings.Instance.IsAdvertisingEnabled);
 	}
 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// 	///// AMAZON 	///// 	///// 	///// 	///// 	///// 	///// 	/////
 	
@@ -554,17 +554,17 @@ public class UMSettingEditor : Editor {
 		return a;
 	}
 
-	private GC_Achievement GetAmazonAchievement(string id) {
-		foreach (GC_Achievement ach in AmazonNativeSettings.Instance.Achievements) {
-			if (ach.Identifier.Equals(id)) {
-				return ach;
-			}
-		}
-		GC_Achievement a = new GC_Achievement ();
-		a.Identifier = id;
-		AmazonNativeSettings.Instance.Achievements.Add(a);
-		return a;
-	}
+//	private GC_Achievement GetAmazonAchievement(string id) {
+//		foreach (GC_Achievement ach in AmazonNativeSettings.Instance.Achievements) {
+//			if (ach.Identifier.Equals(id)) {
+//				return ach;
+//			}
+//		}
+//		GC_Achievement a = new GC_Achievement ();
+//		a.Identifier = id;
+//		AmazonNativeSettings.Instance.Achievements.Add(a);
+//		return a;
+//	}
 
 	private GK_Leaderboard GetIOSLeaderboard(string id) {
 		foreach (GK_Leaderboard lb in IOSNativeSettings.Instance.Leaderboards) {
@@ -587,23 +587,22 @@ public class UMSettingEditor : Editor {
 		AndroidNativeSettings.Instance.Leaderboards.Add(l);
 		return l;
 	}
-
-	private GC_Leaderboard GetAmazonLeaderboard(string id) {
-		foreach (GC_Leaderboard lb in AmazonNativeSettings.Instance.Leaderboards) {
-			if (lb.Identifier.Equals(id)) {
-				return lb;
-			}
-		}
-		GC_Leaderboard l = new GC_Leaderboard();
-		l.Identifier = id;
-		AmazonNativeSettings.Instance.Leaderboards.Add(l);
-		return l;
-	}
+//
+//	private GC_Leaderboard GetAmazonLeaderboard(string id) {
+//		foreach (GC_Leaderboard lb in AmazonNativeSettings.Instance.Leaderboards) {
+//			if (lb.Identifier.Equals(id)) {
+//				return lb;
+//			}
+//		}
+//		GC_Leaderboard l = new GC_Leaderboard();
+//		l.Identifier = id;
+//		AmazonNativeSettings.Instance.Leaderboards.Add(l);
+//		return l;
+//	}
 
 	private bool DrawSortingButtons(object currentObject, IList ObjectsList,
 	                                object androidObject, IList androidObjectsList,
-	                                object iosObject, IList iosObjectsList,
-										  object amazonObject, IList amazonObjectsList) {
+	                                object iosObject, IList iosObjectsList) {
 		
 		int ObjectIndex = ObjectsList.IndexOf(currentObject);
 		if(ObjectIndex == 0) {
@@ -692,7 +691,7 @@ public class UMSettingEditor : Editor {
 				foreach(UM_Leaderboard leaderbaord in settings.Leaderboards) {
 					GPLeaderBoard gpLb = GetAndroidLeaderboard(leaderbaord.AndroidId);
 					GK_Leaderboard gkLb = GetIOSLeaderboard(leaderbaord.IOSId);
-					GC_Leaderboard gcLb = GetAmazonLeaderboard(leaderbaord.AmazonId);
+//					GC_Leaderboard gcLb = GetAmazonLeaderboard(leaderbaord.AmazonId);
 
 					EditorGUILayout.BeginVertical (GUI.skin.box);
 					EditorGUILayout.BeginHorizontal();
@@ -709,8 +708,7 @@ public class UMSettingEditor : Editor {
 					leaderbaord.IsOpen = EditorGUILayout.Foldout(leaderbaord.IsOpen, leaderbaord.id);
 					bool ItemWasRemoved = DrawSortingButtons((object) leaderbaord, settings.Leaderboards,
 					                                         (object) gpLb, AndroidNativeSettings.Instance.Leaderboards,
-					                                         (object) gkLb, IOSNativeSettings.Instance.Leaderboards,
-																	  (object) gcLb, AmazonNativeSettings.Instance.Leaderboards);
+					                                         (object) gkLb, IOSNativeSettings.Instance.Leaderboards);
 					if(ItemWasRemoved) {
 						return;
 					}
@@ -727,7 +725,7 @@ public class UMSettingEditor : Editor {
 							}
 							gkLb.Info.Title = leaderbaord.id;
 							gpLb.Name = leaderbaord.id;
-							gcLb.Title = leaderbaord.id;
+//							gcLb.Title = leaderbaord.id;
 							EditorGUILayout.EndHorizontal();
 							
 							EditorGUILayout.BeginHorizontal();
@@ -788,7 +786,7 @@ public class UMSettingEditor : Editor {
 							}
 							EditorGUILayout.EndHorizontal();
 
-							GUI.enabled = AmazonNativeSettings.Instance.IsGameCircleEnabled;
+//							GUI.enabled = AmazonNativeSettings.Instance.IsGameCircleEnabled;
 
 							EditorGUILayout.BeginHorizontal();
 							EditorGUILayout.LabelField(AMAZONLID);
@@ -796,7 +794,7 @@ public class UMSettingEditor : Editor {
 							if(leaderbaord.AmazonId.Length > 0) {
 								leaderbaord.AmazonId 		= leaderbaord.AmazonId.Trim();
 							}
-							gcLb.Identifier = leaderbaord.AmazonId;
+//							gcLb.Identifier = leaderbaord.AmazonId;
 							EditorGUILayout.EndHorizontal();
 
 							GUI.enabled = true;
@@ -812,11 +810,11 @@ public class UMSettingEditor : Editor {
 							leaderbaord.Description	 = EditorGUILayout.TextArea(leaderbaord.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
 							gkLb.Info.Description = leaderbaord.Description;
 							gpLb.Description = leaderbaord.Description;
-							gcLb.Description = leaderbaord.Description;
+//							gcLb.Description = leaderbaord.Description;
 							leaderbaord.Texture = (Texture2D) EditorGUILayout.ObjectField("", leaderbaord.Texture, typeof (Texture2D), false);
 							gkLb.Info.Texture = leaderbaord.Texture;
 							gpLb.Texture = leaderbaord.Texture;
-							gcLb.Texture = leaderbaord.Texture;
+//							gcLb.Texture = leaderbaord.Texture;
 							EditorGUILayout.EndHorizontal();
 							EditorGUILayout.Space();
 						} EditorGUI.indentLevel--;
@@ -844,9 +842,9 @@ public class UMSettingEditor : Editor {
 					GK_Leaderboard iOSLb = new GK_Leaderboard(lb.IOSId);
 					iOSLb.Info.Title = lb.id;
 					IOSNativeSettings.Instance.Leaderboards.Add(iOSLb);
-					GC_Leaderboard AmazonLb = new GC_Leaderboard ();
-					AmazonLb.Identifier = lb.id;
-					AmazonNativeSettings.Instance.Leaderboards.Add (AmazonLb);
+//					GC_Leaderboard AmazonLb = new GC_Leaderboard ();
+//					AmazonLb.Identifier = lb.id;
+//					AmazonNativeSettings.Instance.Leaderboards.Add (AmazonLb);
 				}
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
@@ -872,7 +870,7 @@ public class UMSettingEditor : Editor {
 				foreach(UM_Achievement achievement in settings.Achievements) {
 					GPAchievement gpAch = GetAndroidAchievement(achievement.AndroidId);
 					GK_AchievementTemplate gkAch = GetIOSAchievement(achievement.IOSId);
-					GC_Achievement gcAch = GetAmazonAchievement(achievement.AmazonId);
+//					GC_Achievement gcAch = GetAmazonAchievement(achievement.AmazonId);
 
 					EditorGUILayout.BeginVertical (GUI.skin.box);
 
@@ -890,8 +888,7 @@ public class UMSettingEditor : Editor {
 					achievement.IsOpen = EditorGUILayout.Foldout(achievement.IsOpen, achievement.id);
 					bool ItemWasRemoved = DrawSortingButtons((object) achievement, settings.Achievements,
 					                                         (object) gpAch, AndroidNativeSettings.Instance.Achievements,
-					                                         (object) gkAch, IOSNativeSettings.Instance.Achievements,
-																	  (object) gcAch, AmazonNativeSettings.Instance.Achievements);
+					                                         (object) gkAch, IOSNativeSettings.Instance.Achievements  );
 					if(ItemWasRemoved) {
 						return;
 					}
@@ -908,7 +905,7 @@ public class UMSettingEditor : Editor {
 							}
 							gkAch.Title = achievement.id;
 							gpAch.Name = achievement.id;
-							gcAch.Title = achievement.id;
+//							gcAch.Title = achievement.id;
 							EditorGUILayout.EndHorizontal();
 							
 							
@@ -970,7 +967,7 @@ public class UMSettingEditor : Editor {
 							}
 							EditorGUILayout.EndHorizontal();
 
-							GUI.enabled = AmazonNativeSettings.Instance.IsGameCircleEnabled;
+//							GUI.enabled = AmazonNativeSettings.Instance.IsGameCircleEnabled;
 
 							EditorGUILayout.BeginHorizontal();
 							EditorGUILayout.LabelField(AMAZONAID);
@@ -978,7 +975,7 @@ public class UMSettingEditor : Editor {
 							if(achievement.AmazonId.Length > 0) {
 								achievement.AmazonId 		= achievement.AmazonId.Trim();
 							}
-							gcAch.Identifier = achievement.AmazonId;
+//							gcAch.Identifier = achievement.AmazonId;
 							EditorGUILayout.EndHorizontal();
 
 							GUI.enabled = true;
@@ -1016,11 +1013,11 @@ public class UMSettingEditor : Editor {
 							achievement.Description	 = EditorGUILayout.TextArea(achievement.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
 							gkAch.Description = achievement.Description;
 							gpAch.Description = achievement.Description;
-							gcAch.Description = achievement.Description;
+//							gcAch.Description = achievement.Description;
 							achievement.Texture = (Texture2D) EditorGUILayout.ObjectField("", achievement.Texture, typeof (Texture2D), false);
 							gkAch.Texture = achievement.Texture;
 							gpAch.Texture = achievement.Texture;
-							gcAch.Texture = achievement.Texture;
+//							gcAch.Texture = achievement.Texture;
 							EditorGUILayout.EndHorizontal();
 							EditorGUILayout.Space();
 							
@@ -1047,9 +1044,9 @@ public class UMSettingEditor : Editor {
 					settings.AddAchievement(ac);
 					AndroidNativeSettings.Instance.Achievements.Add(new GPAchievement(ac.AndroidId, ac.id));
 					IOSNativeSettings.Instance.Achievements.Add(new GK_AchievementTemplate(){Id = ac.IOSId, Title = ac.id});
-					GC_Achievement AmazonAc = new GC_Achievement ();
-					AmazonAc.Identifier = ac.id;
-					AmazonNativeSettings.Instance.Achievements.Add (AmazonAc);
+//					GC_Achievement AmazonAc = new GC_Achievement ();
+//					AmazonAc.Identifier = ac.id;
+//					AmazonNativeSettings.Instance.Achievements.Add (AmazonAc);
 				}
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
@@ -1167,20 +1164,20 @@ public class UMSettingEditor : Editor {
 			if(settings.IOSAdEdngine == UM_IOSAdEngineOprions.GoogleMobileAd) {
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField(IOS_UnitAdId);
-				GoogleMobileAdSettings.Instance.IOS_BannersUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.IOS_BannersUnitId);
-				
-				if(GoogleMobileAdSettings.Instance.IOS_BannersUnitId.Length > 0) {
-					GoogleMobileAdSettings.Instance.IOS_BannersUnitId		= GoogleMobileAdSettings.Instance.IOS_BannersUnitId.Trim();
-				}
+//				GoogleMobileAdSettings.Instance.IOS_BannersUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.IOS_BannersUnitId);
+//				
+//				if(GoogleMobileAdSettings.Instance.IOS_BannersUnitId.Length > 0) {
+//					GoogleMobileAdSettings.Instance.IOS_BannersUnitId		= GoogleMobileAdSettings.Instance.IOS_BannersUnitId.Trim();
+//				}
 				
 				EditorGUILayout.EndHorizontal();
 				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField(IOS_InterstAdId);
-				GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId);
-				if(GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId.Length > 0) {
-					GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId		= GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId.Trim();
-				}
+//				GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId);
+//				if(GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId.Length > 0) {
+//					GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId		= GoogleMobileAdSettings.Instance.IOS_InterstisialsUnitId.Trim();
+//				}
 				
 				EditorGUILayout.EndHorizontal();
 			}
@@ -1196,20 +1193,20 @@ public class UMSettingEditor : Editor {
 							
 			EditorGUILayout.BeginHorizontal ();
 			EditorGUILayout.LabelField (Android_UnitAdId);
-			GoogleMobileAdSettings.Instance.Android_BannersUnitId = EditorGUILayout.TextField (GoogleMobileAdSettings.Instance.Android_BannersUnitId);
-			if (GoogleMobileAdSettings.Instance.Android_BannersUnitId.Length > 0) {
-				GoogleMobileAdSettings.Instance.Android_BannersUnitId = GoogleMobileAdSettings.Instance.Android_BannersUnitId.Trim ();
-			}
+//			GoogleMobileAdSettings.Instance.Android_BannersUnitId = EditorGUILayout.TextField (GoogleMobileAdSettings.Instance.Android_BannersUnitId);
+//			if (GoogleMobileAdSettings.Instance.Android_BannersUnitId.Length > 0) {
+//				GoogleMobileAdSettings.Instance.Android_BannersUnitId = GoogleMobileAdSettings.Instance.Android_BannersUnitId.Trim ();
+//			}
 		
 			EditorGUILayout.EndHorizontal ();
 		
 			EditorGUILayout.BeginHorizontal ();
 			EditorGUILayout.LabelField (Android_InterstAdId);
-			GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId = EditorGUILayout.TextField (GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId);
-			if (GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId.Length > 0) {
-				GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId = GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId.Trim ();
-			}
-		
+//			GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId = EditorGUILayout.TextField (GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId);
+//			if (GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId.Length > 0) {
+//				GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId = GoogleMobileAdSettings.Instance.Android_InterstisialsUnitId.Trim ();
+//			}
+//		
 			EditorGUILayout.EndHorizontal ();
 
 		} EditorGUI.indentLevel--;
@@ -1229,19 +1226,19 @@ public class UMSettingEditor : Editor {
 			if(settings.WP8AdEdngine == UM_WP8AdEngineOprions.GoogleMobileAd) {
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField(WP8_UnitAdId);
-				GoogleMobileAdSettings.Instance.WP8_BannersUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.WP8_BannersUnitId);
-				if(GoogleMobileAdSettings.Instance.WP8_BannersUnitId.Length > 0) {
-					GoogleMobileAdSettings.Instance.WP8_BannersUnitId		= GoogleMobileAdSettings.Instance.WP8_BannersUnitId.Trim();
-				}
+//				GoogleMobileAdSettings.Instance.WP8_BannersUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.WP8_BannersUnitId);
+//				if(GoogleMobileAdSettings.Instance.WP8_BannersUnitId.Length > 0) {
+//					GoogleMobileAdSettings.Instance.WP8_BannersUnitId		= GoogleMobileAdSettings.Instance.WP8_BannersUnitId.Trim();
+//				}
 				
 				EditorGUILayout.EndHorizontal();
 				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField(WP8_InterstAdId);
-				GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId);
-				if(GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId.Length > 0) {
-					GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId		= GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId.Trim();
-				}
+//				GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId	 	= EditorGUILayout.TextField(GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId);
+//				if(GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId.Length > 0) {
+//					GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId		= GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId.Trim();
+//				}
 				EditorGUILayout.EndHorizontal();
 			}
 
@@ -1250,26 +1247,26 @@ public class UMSettingEditor : Editor {
 		EditorGUILayout.LabelField("Amazon", EditorStyles.boldLabel);
 		EditorGUI.indentLevel++; {
 			EditorGUI.BeginChangeCheck();
-			AmazonNativeSettings.Instance.IsAdvertisingEnabled = SA.Common.Editor.Tools.ToggleFiled("Advertising API", AmazonNativeSettings.Instance.IsAdvertisingEnabled);
-			if(EditorGUI.EndChangeCheck())  {
-				UpdateGoogleAdAmazonAPI();
-			}
-
-			GUI.enabled = AmazonNativeSettings.Instance.IsAdvertisingEnabled;
+//			AmazonNativeSettings.Instance.IsAdvertisingEnabled = SA.Common.Editor.Tools.ToggleFiled("Advertising API", AmazonNativeSettings.Instance.IsAdvertisingEnabled);
+//			if(EditorGUI.EndChangeCheck())  {
+//				UpdateGoogleAdAmazonAPI();
+//			}
+//
+//			GUI.enabled = AmazonNativeSettings.Instance.IsAdvertisingEnabled;
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(Amazon_APIKey);
-			AmazonNativeSettings.Instance.AppAPIKey = EditorGUILayout.TextField(AmazonNativeSettings.Instance.AppAPIKey);
+//			AmazonNativeSettings.Instance.AppAPIKey = EditorGUILayout.TextField(AmazonNativeSettings.Instance.AppAPIKey);
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(IsTestingModeLabel);
-			AmazonNativeSettings.Instance.IsTestMode = EditorGUILayout.Toggle(AmazonNativeSettings.Instance.IsTestMode);
+//			AmazonNativeSettings.Instance.IsTestMode = EditorGUILayout.Toggle(AmazonNativeSettings.Instance.IsTestMode);
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(BannerAlignLabel);
-			AmazonNativeSettings.Instance.AdvertisingBannerAlign = (AMN_BannerAlign) EditorGUILayout.EnumPopup(AmazonNativeSettings.Instance.AdvertisingBannerAlign);
+//			AmazonNativeSettings.Instance.AdvertisingBannerAlign = (AMN_BannerAlign) EditorGUILayout.EnumPopup(AmazonNativeSettings.Instance.AdvertisingBannerAlign);
 			EditorGUILayout.EndHorizontal();
 
 			GUI.enabled  = true;	
@@ -1381,7 +1378,7 @@ public class UMSettingEditor : Editor {
 
 
 
-							GUI.enabled = AmazonNativeSettings.Instance.IsBillingEnabled;
+//							GUI.enabled = AmazonNativeSettings.Instance.IsBillingEnabled;
 							p.AmazonId = EditorGUILayout.TextField(AmazonSKU, p.AmazonId);
 							GUI.enabled = true;
 
@@ -1635,12 +1632,12 @@ public class UMSettingEditor : Editor {
 
 		EditorGUILayout.BeginHorizontal();
 		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("IOS Native") ,   IOSNativeSettings.VERSION_NUMBER);
-		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("WP8 Native") ,   WP8NativeSettings.VERSION_NUMBER);
+//		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("WP8 Native") ,   WP8NativeSettings.VERSION_NUMBER);
 		
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.BeginHorizontal();
-		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("Google Mobile Ad") ,   GoogleMobileAdSettings.VERSION_NUMBER);
+//		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("Google Mobile Ad") ,   GoogleMobileAdSettings.VERSION_NUMBER);
 		SA.Common.Editor.Tools.SelectableLabelField(new GUIContent("Google Analytics") ,   SA.Analytics.Google.GA_Settings.VERSION_NUMBER);
 		
 		EditorGUILayout.EndHorizontal();
@@ -1659,7 +1656,7 @@ public class UMSettingEditor : Editor {
 		#if UNITY_EDITOR
 		EditorUtility.SetDirty(UltimateMobileSettings.Instance);
 		EditorUtility.SetDirty(AndroidNativeSettings.Instance);
-		EditorUtility.SetDirty(GoogleMobileAdSettings.Instance);
+//		EditorUtility.SetDirty(GoogleMobileAdSettings.Instance);
 		EditorUtility.SetDirty(IOSNativeSettings.Instance);
 		#endif
 	}

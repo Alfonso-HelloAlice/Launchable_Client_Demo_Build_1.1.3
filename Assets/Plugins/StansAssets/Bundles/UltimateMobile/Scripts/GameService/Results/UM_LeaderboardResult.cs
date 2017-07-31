@@ -14,9 +14,9 @@ public class UM_LeaderboardResult : UM_Result {
 		Setinfo(leaderboard);
 	}
 
-	public UM_LeaderboardResult(UM_Leaderboard leaderboard, AMN_Result result) : base(result) {
-		Setinfo(leaderboard);
-	}	
+//	public UM_LeaderboardResult(UM_Leaderboard leaderboard, AMN_Result result) : base(result) {
+//		Setinfo(leaderboard);
+//	}	
 	
 	private void Setinfo(UM_Leaderboard leaderboard) {
 		_Leaderboard = leaderboard;

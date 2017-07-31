@@ -40,7 +40,7 @@ public class UM_InAppPurchaseManager  {
 
 				case RuntimePlatform.Android:
 					if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-						_Client = new UM_Amazon_InAppClient();
+//						_Client = new UM_Amazon_InAppClient();
 					} else {
 						_Client =  new UM_Android_InAppClient();
 					}
@@ -52,7 +52,7 @@ public class UM_InAppPurchaseManager  {
 				case RuntimePlatform.WSAPlayerX64:
 				case RuntimePlatform.WSAPlayerX86:
 				#endif
-					_Client =  new UM_WP8_InAppClient();
+//					_Client =  new UM_WP8_InAppClient();
 					break;
 				default:
 					if(Application.isEditor && UltimateMobileSettings.Instance.Is_InApps_EditorTestingEnabled) {
@@ -164,7 +164,7 @@ public class UM_InAppPurchaseManager  {
 
 		IOSNativeSettings.Instance.InAppProducts.Clear();
 		AndroidNativeSettings.Instance.InAppProducts.Clear();
-		AmazonNativeSettings.Instance.InAppProducts.Clear ();
+//		AmazonNativeSettings.Instance.InAppProducts.Clear ();
 		foreach(UM_InAppProduct prod in UltimateMobileSettings.Instance.InAppProducts) {
 			AddToISNSettings(prod);
 			AddToANSettings(prod);
@@ -230,23 +230,23 @@ public class UM_InAppPurchaseManager  {
 
 
 
-		AmazonProductTemplate newTpl =  new AmazonProductTemplate();
-		newTpl.Sku = prod.AmazonId;
-		newTpl.Description = prod.Description;
-		newTpl.Title = prod.DisplayName;
-		newTpl.LocalizedPrice = prod.LocalizedPrice;
-		newTpl.Texture = prod.Texture;
-		newTpl.IsOpen = false;
-
-		if(prod.Type == UM_InAppType.Consumable) {
-			newTpl.ProductType = AMN_InAppType.CONSUMABLE;
-		}
-
-		if(prod.Type == UM_InAppType.NonConsumable) {
-			newTpl.ProductType = AMN_InAppType.ENTITLED;
-		}
-
-		AmazonNativeSettings.Instance.InAppProducts.Add(newTpl);
+//		AmazonProductTemplate newTpl =  new AmazonProductTemplate();
+//		newTpl.Sku = prod.AmazonId;
+//		newTpl.Description = prod.Description;
+//		newTpl.Title = prod.DisplayName;
+//		newTpl.LocalizedPrice = prod.LocalizedPrice;
+//		newTpl.Texture = prod.Texture;
+//		newTpl.IsOpen = false;
+//
+//		if(prod.Type == UM_InAppType.Consumable) {
+//			newTpl.ProductType = AMN_InAppType.CONSUMABLE;
+//		}
+//
+//		if(prod.Type == UM_InAppType.NonConsumable) {
+//			newTpl.ProductType = AMN_InAppType.ENTITLED;
+//		}
+//
+//		AmazonNativeSettings.Instance.InAppProducts.Add(newTpl);
 	}
 
 

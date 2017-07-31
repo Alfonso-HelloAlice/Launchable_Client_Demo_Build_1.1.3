@@ -85,21 +85,21 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 
 				if (UltimateMobileSettings.Instance.AutoLoadAchievementsInfo) {
 					_DataEventsCount++;
-					SA_AmazonGameCircleManager.Instance.OnRequestAchievementsReceived += OnAmazonGameCircleRequestAchievementsReceived;
+//					SA_AmazonGameCircleManager.Instance.OnRequestAchievementsReceived += OnAmazonGameCircleRequestAchievementsReceived;
 				}
 
 				if (UltimateMobileSettings.Instance.AutoLoadLeaderboardsInfo) {
 					//Important: For every Leaderboard 3 requests will be performed + 1 request for Leaderboards Metadata Request
 					_DataEventsCount += UltimateMobileSettings.Instance.Leaderboards.Count * 3 + 1;
-					SA_AmazonGameCircleManager.Instance.OnRequestLeaderboardsReceived += OnAmazonGameCircleRequestLeaderboardsReceived;
+//					SA_AmazonGameCircleManager.Instance.OnRequestLeaderboardsReceived += OnAmazonGameCircleRequestLeaderboardsReceived;
 				}
 
-				SA_AmazonGameCircleManager.Instance.OnInitializeResult += OnAmazonInitializeResult;
-				SA_AmazonGameCircleManager.Instance.OnRequestPlayerDataReceived += OnAmazonRequestPlayerDataReceived;
-				SA_AmazonGameCircleManager.Instance.OnRequestAchievementsReceived += OnAmazonRequestAchievementsReceived;
-				SA_AmazonGameCircleManager.Instance.OnRequestLeaderboardsReceived += OnAmazonRequestLeaderboardsReceived;
-				SA_AmazonGameCircleManager.Instance.OnSubmitLeaderboardReceived += OnAmazonSubmitLeaderboardReceived;
-				SA_AmazonGameCircleManager.Instance.OnScoresLoaded += OnAmazonScoresLoaded;
+//				SA_AmazonGameCircleManager.Instance.OnInitializeResult += OnAmazonInitializeResult;
+//				SA_AmazonGameCircleManager.Instance.OnRequestPlayerDataReceived += OnAmazonRequestPlayerDataReceived;
+//				SA_AmazonGameCircleManager.Instance.OnRequestAchievementsReceived += OnAmazonRequestAchievementsReceived;
+//				SA_AmazonGameCircleManager.Instance.OnRequestLeaderboardsReceived += OnAmazonRequestLeaderboardsReceived;
+//				SA_AmazonGameCircleManager.Instance.OnSubmitLeaderboardReceived += OnAmazonSubmitLeaderboardReceived;
+//				SA_AmazonGameCircleManager.Instance.OnScoresLoaded += OnAmazonScoresLoaded;
 			}
 			else {
 				if (UltimateMobileSettings.Instance.AutoLoadAchievementsInfo) {
@@ -147,7 +147,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.Connect ();
+//				SA_AmazonGameCircleManager.Instance.Connect ();
 			} 
 			else {
 				GooglePlayConnection.Instance.Connect ();
@@ -165,7 +165,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.Disconnect();
+//				SA_AmazonGameCircleManager.Instance.Disconnect();
 			} else {
 				GooglePlayConnection.Instance.Disconnect();
 			}
@@ -211,19 +211,19 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 		case RuntimePlatform.IPhonePlayer:
 			GK_Player gk_player =  GameCenterManager.GetPlayerById(playerId);
 			if(gk_player != null) {
-				player =  new UM_Player(gk_player, null, null);
+				player =  new UM_Player(gk_player, null);
 			}
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				GC_Player gc_player = SA_AmazonGameCircleManager.Instance.GetPlayerById(playerId);
-				if (gc_player != null) {
-					player = new UM_Player(null, null, gc_player);
-				}
+//				GC_Player gc_player = SA_AmazonGameCircleManager.Instance.GetPlayerById(playerId);
+//				if (gc_player != null) {
+//					player = new UM_Player(null, null, gc_player);
+//				}
 			} else {
 				GooglePlayerTemplate gp_player = GooglePlayManager.Instance.GetPlayerById(playerId);
 				if(gp_player != null) {
-					player =  new UM_Player(null, gp_player, null);
+					player =  new UM_Player(null, gp_player);
 				}
 			}
 			break;
@@ -248,7 +248,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.RequestAchievements ();
+//				SA_AmazonGameCircleManager.Instance.RequestAchievements ();
 			} else {
 				GooglePlayManager.Instance.LoadAchievements ();
 			}
@@ -264,7 +264,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.ShowAchievementsOverlay ();
+//				SA_AmazonGameCircleManager.Instance.ShowAchievementsOverlay ();
 			} else {
 				GooglePlayManager.Instance.ShowAchievementsUI ();
 			}
@@ -320,7 +320,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, 100.0f);
+//				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, 100.0f);
 			} else {
 				GooglePlayManager.Instance.UnlockAchievementById(achievement.AndroidId);
 			}
@@ -348,7 +348,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 		case RuntimePlatform.Android:
 
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, percentages);
+//				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, percentages);
 			} else {
 				GPAchievement a = GooglePlayManager.Instance.GetAchievement(achievement.AndroidId);
 				if(a != null) {
@@ -383,8 +383,8 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 		}
 		case RuntimePlatform.Android: {
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				float percentage = ((float)steps / (float)achievement.Steps) * 100f;
-				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, percentage);
+//				float percentage = ((float)steps / (float)achievement.Steps) * 100f;
+//				SA_AmazonGameCircleManager.Instance.UpdateAchievementProgress(achievement.AmazonId, percentage);
 			} else {
 				GPAchievement a = GooglePlayManager.Instance.GetAchievement(achievement.AndroidId);
 				if (a != null) {
@@ -437,10 +437,10 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			return GameCenterManager.GetAchievementProgress(achievement.IOSId);
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				GC_Achievement ach = SA_AmazonGameCircleManager.Instance.GetAchievement(achievement.AmazonId);
-				if (ach != null) {
-					return ach.Progress;
-				}
+//				GC_Achievement ach = SA_AmazonGameCircleManager.Instance.GetAchievement(achievement.AmazonId);
+//				if (ach != null) {
+//					return ach.Progress;
+//				}
 			} else {
 				GPAchievement a = GooglePlayManager.Instance.GetAchievement(achievement.AndroidId);
 				if(a != null) {
@@ -483,10 +483,10 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			return Mathf.CeilToInt(((float)achievement.Steps / 100f) * percentage);
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				GC_Achievement ac = SA_AmazonGameCircleManager.Instance.GetAchievement(achievement.AmazonId);
-				if (ac != null) {
-					return Mathf.CeilToInt(((float)achievement.Steps / 100f) * ac.Progress);
-				}
+//				GC_Achievement ac = SA_AmazonGameCircleManager.Instance.GetAchievement(achievement.AmazonId);
+//				if (ac != null) {
+//					return Mathf.CeilToInt(((float)achievement.Steps / 100f) * ac.Progress);
+//				}
 			} else {
 				GPAchievement a = GooglePlayManager.Instance.GetAchievement(achievement.AndroidId);
 				if (a != null) {
@@ -531,7 +531,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.RequestLeaderboards ();
+//				SA_AmazonGameCircleManager.Instance.RequestLeaderboards ();
 			} else {
 				GooglePlayManager.Instance.LoadLeaderBoards ();
 			}
@@ -551,7 +551,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.ShowLeaderboardsOverlay ();
+//				SA_AmazonGameCircleManager.Instance.ShowLeaderboardsOverlay ();
 			} else {
 				GooglePlayManager.Instance.ShowLeaderBoardsUI ();
 			}
@@ -574,7 +574,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.ShowLeaderboardsOverlay ();
+//				SA_AmazonGameCircleManager.Instance.ShowLeaderboardsOverlay ();
 			} else {
 				GooglePlayManager.Instance.ShowLeaderBoardById(leaderboard.AndroidId);
 			}
@@ -594,7 +594,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.SubmitLeaderBoardProgress(leaderboard.AmazonId, score);
+//				SA_AmazonGameCircleManager.Instance.SubmitLeaderBoardProgress(leaderboard.AmazonId, score);
 			} else {
 				GooglePlayManager.Instance.SubmitScoreById(leaderboard.AndroidId, score, context.ToString());
 			}
@@ -610,7 +610,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 	public UM_Score GetCurrentPlayerScore(UM_Leaderboard leaderboard, UM_TimeSpan timeSpan = UM_TimeSpan.ALL_TIME, UM_CollectionType collection = UM_CollectionType.GLOBAL) {
 		
 		if(leaderboard != null) {
-			return leaderboard.GetCurrentPlayerScore(timeSpan, collection);
+//			return leaderboard.GetCurrentPlayerScore(timeSpan, collection);
 		}
 		
 		return null;
@@ -669,7 +669,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			break;
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				SA_AmazonGameCircleManager.Instance.LoadTopScores(leaderboard.AmazonId, timeSpan.Get_GC_TimeSpan());
+//				SA_AmazonGameCircleManager.Instance.LoadTopScores(leaderboard.AmazonId, timeSpan.Get_GC_TimeSpan());
 			} else {
 				GooglePlayManager.Instance.LoadTopScores(leaderboard.AndroidId, timeSpan.Get_GP_TimeSpan(), collection.Get_GP_CollectionType(), maxResults);
 			}
@@ -743,15 +743,15 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
 
 				Debug.Log("Start To Load Amazon Player");
-				SA_AmazonGameCircleManager.Instance.RetrieveLocalPlayer();
-				
-				if (UltimateMobileSettings.Instance.AutoLoadAchievementsInfo) {
-					SA_AmazonGameCircleManager.Instance.RequestAchievements ();
-				}
-
-				if (UltimateMobileSettings.Instance.AutoLoadLeaderboardsInfo) {
-					SA_AmazonGameCircleManager.Instance.RequestLeaderboards ();
-				}
+//				SA_AmazonGameCircleManager.Instance.RetrieveLocalPlayer();
+//				
+//				if (UltimateMobileSettings.Instance.AutoLoadAchievementsInfo) {
+//					SA_AmazonGameCircleManager.Instance.RequestAchievements ();
+//				}
+//
+//				if (UltimateMobileSettings.Instance.AutoLoadLeaderboardsInfo) {
+//					SA_AmazonGameCircleManager.Instance.RequestLeaderboards ();
+//				}
 
 			} else {
 				if (UltimateMobileSettings.Instance.AutoLoadAchievementsInfo) {
@@ -815,7 +815,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 
 		_IsDataLoaded = true;
 
-		_Player =  new UM_Player(GameCenterManager.Player, GooglePlayManager.Instance.player, SA_AmazonGameCircleManager.Instance.Player);
+		_Player =  new UM_Player(GameCenterManager.Player, GooglePlayManager.Instance.player);
 		
 		SetConnectionState(UM_ConnectionState.CONNECTED);
 		OnPlayerConnected();
@@ -952,7 +952,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 	//--------------------------------------
 	// Amazon Events
 	//--------------------------------------
-
+	/*
 	void OnAmazonInitializeResult(AMN_InitializeResult result) {
 		if(result.isSuccess) {
 			OnServiceConnected();
@@ -1036,7 +1036,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 			ActionScoresListLoaded(res);
 		}
 	}
-
+	*/
 	//--------------------------------------
 	// Private Methods
 	//--------------------------------------

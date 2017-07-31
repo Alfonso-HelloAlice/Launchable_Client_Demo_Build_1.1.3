@@ -12,8 +12,8 @@ public class UM_PurchaseResult  {
 
 	public GooglePurchaseTemplate Google_PurchaseInfo = null;
 	public SA.IOSNative.StoreKit.PurchaseResult IOS_PurchaseInfo = null;
-	public WP8PurchseResponce WP8_PurchaseInfo = null;
-	public AMN_PurchaseResponse Amazon_PurchaseInfo = null;
+//	public WP8PurchseResponce WP8_PurchaseInfo = null;
+//	public AMN_PurchaseResponse Amazon_PurchaseInfo = null;
 
 
 
@@ -39,7 +39,7 @@ public class UM_PurchaseResult  {
 			switch(Application.platform) {
 			case RuntimePlatform.Android:
 				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-					return Amazon_PurchaseInfo.ReceiptId;
+					return "no Amazon";
 				} else {
 					return Google_PurchaseInfo.OrderId;
 				}
@@ -52,7 +52,7 @@ public class UM_PurchaseResult  {
 			case RuntimePlatform.WSAPlayerX64:
 			case RuntimePlatform.WSAPlayerX86:
 			#endif
-				return WP8_PurchaseInfo.TransactionId;
+				return "no WP8";
 			default:
 				return string.Empty;
 			}

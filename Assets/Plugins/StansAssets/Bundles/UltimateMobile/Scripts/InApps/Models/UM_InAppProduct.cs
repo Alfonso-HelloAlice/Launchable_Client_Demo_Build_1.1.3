@@ -21,18 +21,18 @@ public class UM_InAppProduct  {
 
 
 	private SA.IOSNative.StoreKit.Product		_IOSTemplate 		= new SA.IOSNative.StoreKit.Product();
-	private WP8ProductTemplate	   				_WP8Template		= new WP8ProductTemplate();
+//	private WP8ProductTemplate	   				_WP8Template		= new WP8ProductTemplate();
 	private GoogleProductTemplate  				_AndroidTemplate 	= new GoogleProductTemplate();
-	private AmazonProductTemplate 				_AmazonTemplate 	= new AmazonProductTemplate();
+//	private AmazonProductTemplate 				_AmazonTemplate 	= new AmazonProductTemplate();
 	private UM_InAppProductTemplate 			_template 			= new UM_InAppProductTemplate();
 
 	private bool _isTemplateSet = false;
 
-	public WP8ProductTemplate WP8Template {
-		get {
-			return _WP8Template;
-		}
-	}
+//	public WP8ProductTemplate WP8Template {
+//		get {
+//			return _WP8Template;
+//		}
+//	}
 
 	public SA.IOSNative.StoreKit.Product IOSTemplate {
 		get {
@@ -46,11 +46,11 @@ public class UM_InAppProduct  {
 		}
 	}
 
-	public AmazonProductTemplate AmazonTemplate {
-		get {
-			return _AmazonTemplate;
-		}
-	}
+//	public AmazonProductTemplate AmazonTemplate {
+//		get {
+//			return _AmazonTemplate;
+//		}
+//	}
 
 	public UM_InAppProductTemplate template {
 		get {
@@ -69,19 +69,19 @@ public class UM_InAppProduct  {
 	}
 
 
-	public void SetTemplate(WP8ProductTemplate tpl) {
-		_WP8Template = tpl;
-		_template = new UM_InAppProductTemplate();
-		_template.id = tpl.ProductId;
-		_template.title = tpl.Name;
-		_template.description = tpl.Description;
-		_template.price = tpl.Price;
-
-
-		DisplayName = tpl.Name;
-		Description = tpl.Description;
-		_isTemplateSet = true;
-	}
+//	public void SetTemplate(WP8ProductTemplate tpl) {
+//		_WP8Template = tpl;
+//		_template = new UM_InAppProductTemplate();
+//		_template.id = tpl.ProductId;
+//		_template.title = tpl.Name;
+//		_template.description = tpl.Description;
+//		_template.price = tpl.Price;
+//
+//
+//		DisplayName = tpl.Name;
+//		Description = tpl.Description;
+//		_isTemplateSet = true;
+//	}
 
 	public void SetTemplate(SA.IOSNative.StoreKit.Product tpl) {
 		_IOSTemplate = tpl;
@@ -109,19 +109,19 @@ public class UM_InAppProduct  {
 		_isTemplateSet = true;
 	}
 
-	public void SetTemplate(AmazonProductTemplate tpl) {
-		_AmazonTemplate = tpl;
-		_template = new UM_InAppProductTemplate();
-		_template.id = tpl.Sku;
-		_template.title = tpl.Title;
-		_template.description = tpl.Description;
-		_template.price = tpl.Price.ToString();
-
-
-		DisplayName = tpl.Title;
-		Description = tpl.Description;
-		_isTemplateSet = true;
-	}
+//	public void SetTemplate(AmazonProductTemplate tpl) {
+//		_AmazonTemplate = tpl;
+//		_template = new UM_InAppProductTemplate();
+//		_template.id = tpl.Sku;
+//		_template.title = tpl.Title;
+//		_template.description = tpl.Description;
+//		_template.price = tpl.Price.ToString();
+//
+//
+//		DisplayName = tpl.Title;
+//		Description = tpl.Description;
+//		_isTemplateSet = true;
+//	}
 		
 
 	public string LocalizedPrice  {
@@ -138,7 +138,7 @@ public class UM_InAppProduct  {
 				if(UltimateMobileSettings.Instance.PlatformEngine.Equals(UM_PlatformDependencies.Android))
 					return  _AndroidTemplate.LocalizedPrice;
 				else
-					return  _AmazonTemplate.LocalizedPrice;
+					return  "no Amazon";
 				
 			case RuntimePlatform.IPhonePlayer:
 				return _IOSTemplate.LocalizedPrice;
@@ -150,7 +150,7 @@ public class UM_InAppProduct  {
 			case RuntimePlatform.WSAPlayerX64:
 			case RuntimePlatform.WSAPlayerX86:
 			#endif
-				return _WP8Template.Price;
+				return "no WP8";
 			}
 
 			return GetPriceByTier().ToString() + " $";
@@ -165,7 +165,7 @@ public class UM_InAppProduct  {
 				if(UltimateMobileSettings.Instance.PlatformEngine.Equals(UM_PlatformDependencies.Android))
 					return _isTemplateSet ? _AndroidTemplate.PriceCurrencyCode : "USD";
 				else
-					return _isTemplateSet ? _AmazonTemplate.PriceCurrencyCode : "USD";
+					return "no Amazon";
 			case RuntimePlatform.IPhonePlayer:
 				return _isTemplateSet ? _IOSTemplate.CurrencyCode : "USD";
 			}
@@ -235,7 +235,7 @@ public class UM_InAppProduct  {
 				if(UltimateMobileSettings.Instance.PlatformEngine.Equals(UM_PlatformDependencies.Android))
 					return _AndroidTemplate.Title;
 				else 
-					return _AmazonTemplate.Title;
+					return "no Amazon";
 			case RuntimePlatform.IPhonePlayer:
 				return _IOSTemplate.DisplayName;
 			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
@@ -245,7 +245,7 @@ public class UM_InAppProduct  {
 			case RuntimePlatform.WSAPlayerX64:
 			case RuntimePlatform.WSAPlayerX86:
 			#endif
-				return _WP8Template.Name;
+				return "no WP8";
 			}
 
 			return string.Empty;
@@ -261,7 +261,7 @@ public class UM_InAppProduct  {
 	}
 
 	public override string ToString () {
-		return string.Format ("[UM_InAppProduct: template={0}, Title={1}, Description={2}, Price={3}, WP8Template={4}, IOSTemplate={5}, AndroidTemplate={6}, AndroidTemplate={7}]", template, DisplayName, Description, LocalizedPrice, WP8Template, IOSTemplate, AndroidTemplate, AmazonTemplate);
+		return string.Format ("[UM_InAppProduct: template={0}, Title={1}, Description={2}, Price={3}, WP8Template={4}, IOSTemplate={5}, AndroidTemplate={6}, AndroidTemplate={7}]", template, DisplayName, Description, LocalizedPrice, IOSTemplate, AndroidTemplate);
 	}
 		
 }

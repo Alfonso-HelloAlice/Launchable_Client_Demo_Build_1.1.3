@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_2;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNIG;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;VUFORIA_IOS_SETTINGS;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_2;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNIG;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;VUFORIA_IOS_SETTINGS;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -46,21 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Ad\UM_AdExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Billing\UM_BillingExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\GameService\UM_GameServiceExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Other\UM_CameraAPIExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Other\UM_ExampleStatusBar.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Other\UM_GalleryMultipleImagesExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Other\UM_NotificationsExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\Social\UM_SocialExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Examples\Scripts\UM_Preview.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Ad\UM_AdManager.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Core\UltimateMobileSettings.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Enums\UM_IOSAdEngineOprions.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Enums\UM_PlatformDependencies.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Enums\UM_WP8AdEngineOprions.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Enums\GC_ScoreTimeSpanMethods.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Enums\GK_CollectionTypeMethods.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Enums\GK_TimeSpanMethods.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Enums\GP_CollectionTypeMethods.cs" />
@@ -76,12 +65,10 @@
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Results\UM_LeaderboardResult.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Templates\UM_Player.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\GameService\Templates\UM_PlayerTemplate.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_Amazon_InAppClient.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_Android_InAppClient.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_Disabled_InAppClient.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_Editor_InAppClient.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_IOS_InAppClient.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Clients\UM_WP8_InAppClient.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Enums\UM_InAppType.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Enums\UM_TransactionsHandlingMode.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\InApps\Interface\UM_BaseInAppClient.cs" />
@@ -147,49 +134,6 @@
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Networking\xExamples\TBM_GameExample\Packages\TBM_RaceData.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Social\UM_ShareUtility.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Scripts\Templates\UM_BaseResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Core\AMN_PlayerData.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Core\Advertising\AMN_AdProperties.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Core\AmazonNativeSettings.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Enums\AMN_BannerAlign.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Enums\AMN_InAppType.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Enums\GC_ScoreTimeSpan.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Manage\SA_AmazonAdsManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Manage\SA_AmazonBillingManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Manage\SA_AmazonGameCircleManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\AmazonAdBanner.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\AmazonProductTemplate.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\GC_Achievement.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\GC_Leaderboard.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\GC_Player.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\GC_Score.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Models\SA_AmazonReceipt.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\AMN_Result.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_BannerCollapsedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_BannerDataResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_BannerDismissedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_BannerExpandedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_InterstitialDataResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Advertising\AMN_InterstitialDismissedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Billing\AMN_GetProductDataResponse.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Billing\AMN_GetPurchaseProductsUpdateResponse.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Billing\AMN_GetUserDataResponse.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Billing\AMN_GetUserIdResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\Billing\AMN_PurchaseResponse.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_InitializeResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_LocalPlayerScoreLoadedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_RequestAchievementsResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_RequestLeaderboardsResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_RequestPlayerDataResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_ScoresLoadedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_SubmitLeaderboardResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Responces\GameCircle\AMN_UpdateAchievementResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Utils\AMN_AdvertisingProxy.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Utils\AMN_ProxyPool.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Utils\AMN_Singleton.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Amazon\Utils\AMN_WWWTextureLoader.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Examples\Scripts\Advertising\SA_AmazonAdsExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Examples\Scripts\Billing\SA_AmazonBillingExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Examples\Scripts\GameCircle\SA_AmazonGCExample.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Addons\Soomla\AN_SoomlaEventType.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Addons\Soomla\AN_SoomlaGrow.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Addons\Soomla\AN_SoomlaProxy.cs" />
@@ -545,25 +489,12 @@
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Core\GA_Manager.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Core\GA_RequestCache.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Enum\GA_HitType.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Example\Scripts\UseExample.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Platfroms\GA_AndroidTools.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Platfroms\GA_FirebaseProxy.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Templates\GA_CachedRequest.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Templates\GA_PlatfromBound.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Templates\GA_Profile.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Templates\GA_Settings.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Example\Scripts\AdMobBanner.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Example\Scripts\AdMobBannerInterstitial.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Example\Scripts\CustomInterstisialExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Example\Scripts\GoogleAdsExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Example\Scripts\GoogleMobileAdTab.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Core\GoogleMobileAd.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Core\GoogleMobileAdSettings.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\IOS\IOSADBanner.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\IOS\IOSAdMobController.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Templates\GADTestDevice.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\WP8\WP8ADBanner.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\WP8\WP8AdMobController.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Core\Config\ISD_Settings.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Core\Enum\ISD_FlagTypes.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Core\Enum\ISD_Frameworks.cs" />
@@ -796,8 +727,6 @@
      <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Models\AMM_ManifestPermission.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Models\AMM_PropertyTemplate.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Models\AMM_Template.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Example\MNFeaturePreview.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Example\MNUseExample.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP_Config.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP_PlatformSettings.cs" />
@@ -815,34 +744,6 @@
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\base\MNIOSNative.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Utils\MNP_Files.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Utils\MNP_Singleton.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Core\WP8NativeSettings.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Enum\WP8ConsumeCodes.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Enum\WP8DialogResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Enum\WP8PurchaseCodes.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Enum\WP8PurchaseProductType.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Market\WP8ConsumeResponse.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Market\WP8InAppPurchasesManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Market\WP8ProductTemplate.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Market\WP8PurchseResponce.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Multimedia\WSAMultimediaManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\PopUps\WP8Dialog.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\PopUps\WP8Message.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\PopUps\WP8RateUsPopUp.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\PopUps\base\WP8PopupBase.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Templates\Results\WP8_InAppsInitResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Templates\Results\WP8_Result.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Templates\Results\WSAImagePickedResult.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Utils\WP8NativeUtils.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\Utils\WSAThreadHelper.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\WPUtils\WPN_Singletone.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\WPUtils\WPN_TextureLoader.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Base\WP8FeaturesExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Base\WP8NativePreviewBackButton.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Base\WPNFeaturePreview.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Market\WPM_MarketExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Market\WPN_BillingManagerExample.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Multimedia\MultimediaSceneController.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\WP8Native\xExamples\Scripts\Other\WPN_PopUpExamples.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Support\Common\Data\SA_Converter.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Support\Common\Data\SA_MiniJSON.cs" />
      <Compile Include="Assets\Plugins\StansAssets\Support\Common\Effetcs\Animations\Tween\Enums\SA_EaseType.cs" />
@@ -932,9 +833,7 @@
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-analytics-impl.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-gcm.txt" />
-     <None Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Documentation\READ ME.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\androidnative.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\ReadMe.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth.jar.txt" />
      <None Include="Assets\Plugins\Android\AN_Res\res\values\ids.xml" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\an_social.txt" />
@@ -977,7 +876,6 @@
      <None Include="Assets\Plugins\StansAssets\Support\Versions\AN_VersionInfo.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\an_sa_soomla.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Camera.mm.txt" />
-     <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\GMA_VersionNotes.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-appinvite.jar.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-safetynet.txt" />
      <None Include="Assets\Plugins\StansAssets\Modules\IOSNative\Documentation\ReadMe.txt" />
@@ -1007,7 +905,6 @@
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-safetynet.jar.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics-impl.jar.txt" />
      <None Include="Assets\Plugins\iOS\VuforiaMediaSource\README.txt" />
-     <None Include="Assets\Plugins\WP8\GoogleAds.xml" />
      <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_UserNotifications.h.txt" />
      <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\an_fitness.jar.txt" />
@@ -1032,20 +929,11 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
- <Reference Include="GoogleAdsWP8">
- <HintPath>/Users/admin/Documents/GitHub/Launchable_Client_Demo_Build/Assets/Plugins/GoogleAdsWP8.dll</HintPath>
- </Reference>
- <Reference Include="WP8Native">
- <HintPath>/Users/admin/Documents/GitHub/Launchable_Client_Demo_Build/Assets/Plugins/WP8Native.dll</HintPath>
- </Reference>
- <Reference Include="WP8PopUps">
- <HintPath>/Users/admin/Documents/GitHub/Launchable_Client_Demo_Build/Assets/Plugins/WP8PopUps.dll</HintPath>
- </Reference>
  <Reference Include="WSANative">
- <HintPath>/Users/admin/Documents/GitHub/Launchable_Client_Demo_Build/Assets/Plugins/WSANative.dll</HintPath>
+ <HintPath>/Users/Zhan/Desktop/launchable_WORK/Launchable_Client_Demo_Build/Assets/Plugins/WSANative.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions">
- <HintPath>/Users/admin/Documents/GitHub/Launchable_Client_Demo_Build/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>/Users/Zhan/Desktop/launchable_WORK/Launchable_Client_Demo_Build/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

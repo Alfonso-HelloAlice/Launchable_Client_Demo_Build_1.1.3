@@ -31,13 +31,13 @@ public class UM_Result {
 		}
 	}
 
-	public UM_Result(AMN_Result result) {
-		_IsSucceeded = result.isSuccess;
-
-		if(!_IsSucceeded) {
-//			_Error =  new UM_Error( (int) result.Response, result.Message);
-		}
-	}
+//	public UM_Result(AMN_Result result) {
+//		_IsSucceeded = result.isSuccess;
+//
+//		if(!_IsSucceeded) {
+////			_Error =  new UM_Error( (int) result.Response, result.Message);
+//		}
+//	}
 
 
 

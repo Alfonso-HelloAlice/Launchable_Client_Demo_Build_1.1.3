@@ -42,12 +42,12 @@ static class UM_TimeSpanMethods {
 		}
 	}
 
-	public static GC_ScoreTimeSpan Get_GC_TimeSpan(this UM_TimeSpan type) {
-		switch (type) {
-		case UM_TimeSpan.ALL_TIME: return GC_ScoreTimeSpan.ALL_TIME;
-		case UM_TimeSpan.WEEK: return GC_ScoreTimeSpan.WEEK;
-		case UM_TimeSpan.TODAY: return GC_ScoreTimeSpan.TODAY;
-		default: return GC_ScoreTimeSpan.ALL_TIME;
-		}
-	}
+//	public static GC_ScoreTimeSpan Get_GC_TimeSpan(this UM_TimeSpan type) {
+//		switch (type) {
+//		case UM_TimeSpan.ALL_TIME: return GC_ScoreTimeSpan.ALL_TIME;
+//		case UM_TimeSpan.WEEK: return GC_ScoreTimeSpan.WEEK;
+//		case UM_TimeSpan.TODAY: return GC_ScoreTimeSpan.TODAY;
+//		default: return GC_ScoreTimeSpan.ALL_TIME;
+//		}
+//	}
 }

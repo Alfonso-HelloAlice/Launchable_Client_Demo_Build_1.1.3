@@ -19,10 +19,11 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     private bool mLostTracking;
     private float mSecondsSinceLost;
 
-	public Button bt1;
-	public Button bt2;
-
-	private bool testing;
+	public Button phoneButton;
+	public Button emailButton;
+	private Animator phone;
+	private Animator email;
+	private bool capture;
 
     #endregion // PRIVATE_MEMBERS
 
@@ -30,7 +31,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region MONOBEHAVIOUR_METHODS
     void Start()
     {
-
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
@@ -91,6 +91,18 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
+		if (phoneButton != null) {
+			phone = phoneButton.gameObject.GetComponent<Animator> ();
+			phone.Play ("phoneAnimation", -1, 0f);
+		}
+		if (emailButton != null) {
+			email = emailButton.gameObject.GetComponent<Animator> ();
+			email.Play ("emailAnimation", -1, 0f);
+		}
+
+		// when screen being captured make sure no animation is playing
+		capture = GameObject.FindObjectOfType<screenShotSharing> ().noAnimation;
+		// when target is found rest the animation first
 
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
@@ -144,10 +156,26 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
                 }
             }
         }
-
-	
-
-
+			
+		if (capture == false) {
+			if (phoneButton != null) {
+				phone.gameObject.SetActive (true);
+				phone.Play ("phoneAnimation");
+			}
+			if (emailButton != null) {
+				email.gameObject.SetActive (true);
+				email.Play ("emailAnimation");
+			}
+		} 
+		// screen is capture disable animaton game object
+		else if (capture == true) {
+			if (phoneButton != null) {
+				phone.gameObject.SetActive (false);
+			}
+			if (emailButton != null) {
+				email.gameObject.SetActive (false);
+			}
+		}
         mHasBeenFound = true;
         mLostTracking = false;
     }
@@ -176,7 +204,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         {
             component.enabled = false;
         }
-
+			
         mLostTracking = true;
         mSecondsSinceLost = 0;
     }

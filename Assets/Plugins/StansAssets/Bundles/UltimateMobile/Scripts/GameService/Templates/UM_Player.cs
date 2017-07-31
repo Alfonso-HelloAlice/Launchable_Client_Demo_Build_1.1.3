@@ -8,7 +8,7 @@ public class UM_Player  {
 
 	private GK_Player _GK_Player;
 	private GooglePlayerTemplate _GP_Player;
-	private GC_Player _GC_Player;
+//	private GC_Player _GC_Player;
 
 	public event Action<Texture2D> BigPhotoLoaded =  delegate {};
 	public event Action<Texture2D> SmallPhotoLoaded =  delegate {};
@@ -18,10 +18,10 @@ public class UM_Player  {
 	// Init
 	//--------------------------------------
 
-	public UM_Player(GK_Player gk, GooglePlayerTemplate gp, GC_Player gc) {
+	public UM_Player(GK_Player gk, GooglePlayerTemplate gp) {
 		_GK_Player = gk;
 		_GP_Player = gp;
-		_GC_Player = gc;
+//		_GC_Player = gc;
 
 		if(_GK_Player != null) {
 			_GK_Player.OnPlayerPhotoLoaded += HandleOnPlayerPhotoLoaded;
@@ -32,9 +32,9 @@ public class UM_Player  {
 			_GP_Player.SmallPhotoLoaded += HandleSmallPhotoLoaded;
 		}
 
-		if (_GC_Player != null) {
-			_GC_Player.AvatarLoaded += AmazonPlayerAvatarLoaded;
-		}
+//		if (_GC_Player != null) {
+//			_GC_Player.AvatarLoaded += AmazonPlayerAvatarLoaded;
+//		}
 	}
 
 	public void LoadBigPhoto() {
@@ -57,7 +57,7 @@ public class UM_Player  {
 			
 		case RuntimePlatform.Android:
 			if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-				_GC_Player.LoadAvatar();
+//				_GC_Player.LoadAvatar();
 			} else { 
 				_GP_Player.LoadIcon();
 			}
@@ -80,11 +80,11 @@ public class UM_Player  {
 			switch(Application.platform) {
 
 			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-					return _GC_Player.PlayerId;
-				} else {
+//				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
+//					return _GC_Player.PlayerId;
+//				} else {
 					return _GP_Player.playerId;
-				}
+
 			case RuntimePlatform.IPhonePlayer:
 				return _GK_Player.Id;
 
@@ -99,11 +99,11 @@ public class UM_Player  {
 		get {
 			switch(Application.platform) {
 			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-					return _GC_Player.Name;
-				} else {
+//				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
+//					return _GC_Player.Name;
+//				} else {
 					return _GP_Player.name;
-				}
+
 			case RuntimePlatform.IPhonePlayer:
 				return _GK_Player.Alias;
 			}
@@ -117,11 +117,11 @@ public class UM_Player  {
 		get {
 			switch(Application.platform) {
 			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-					return _GC_Player.Avatar;
-				} else {
+//				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
+//					return _GC_Player.Avatar;
+//				} else {
 					return _GP_Player.image;	
-				}
+
 			case RuntimePlatform.IPhonePlayer:
 				return _GK_Player.SmallPhoto;
 			}
@@ -134,11 +134,11 @@ public class UM_Player  {
 		get {
 			switch(Application.platform) {
 			case RuntimePlatform.Android:
-				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
-					return _GC_Player.Avatar;
-				} else {
+//				if (UltimateMobileSettings.Instance.PlatformEngine == UM_PlatformDependencies.Amazon) {
+//					return _GC_Player.Avatar;
+//				} else {
 					return _GP_Player.icon;
-				}
+
 			case RuntimePlatform.IPhonePlayer:
 				return _GK_Player.SmallPhoto;
 			}
@@ -180,11 +180,11 @@ public class UM_Player  {
 		}
 	}
 
-	public GC_Player GameCirclePlayer {
-		get {
-			return _GC_Player;
-		}
-	}
+//	public GC_Player GameCirclePlayer {
+//		get {
+//			return _GC_Player;
+//		}
+//	}
 
 	//--------------------------------------
 	// Android Events
@@ -218,7 +218,7 @@ public class UM_Player  {
 
 	private void AmazonPlayerAvatarLoaded (Texture2D avatar)
 	{
-		_GC_Player.AvatarLoaded -= AmazonPlayerAvatarLoaded;
+//		_GC_Player.AvatarLoaded -= AmazonPlayerAvatarLoaded;
 
 		SmallPhotoLoaded(avatar);
 	}
