@@ -1,4 +1,6 @@
-﻿////////////////////////////////////////////////////////////////////////////////
+//#define USER_NOTIFICATIONS_API
+
+////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin
 // @author Osipov Stanislav (Stan's Assets) 
@@ -6,7 +8,7 @@
 // @website https://stansassets.com
 //
 ////////////////////////////////////////////////////////////////////////////////
-#define USER_NOTIFICATIONS_API
+
 
 using System;
 using System.Collections;
@@ -40,7 +42,7 @@ namespace SA.IOSNative.UserNotifications {
 
 		#if UNITY_IPHONE && !UNITY_EDITOR && USER_NOTIFICATIONS_API
 		[DllImport ("__Internal")]
-		private static extern void _ISN_RequestPermissions();
+		private static extern void _ISN_RequestUserNotificationPermissions();
 
 		[DllImport ("__Internal")]
 		private static extern void _ISN_ScheduleUserNotification(string jsonString);
@@ -53,6 +55,13 @@ namespace SA.IOSNative.UserNotifications {
 
 		[DllImport ("__Internal")]
 		private static extern void _ISN_GetPendingNotifications();
+
+
+		//inside app controller
+
+		[DllImport ("__Internal")]
+		private static extern string _ISN_GetLunchUserNotification();
+
 		#endif
 
 		public static NotificationRequest launchNotificationRequest;
@@ -60,12 +69,12 @@ namespace SA.IOSNative.UserNotifications {
 		public static void RequestPermissions(Action<SA.Common.Models.Result> callback) {
 			RequestPermissionsCallback = callback;
 			#if UNITY_IPHONE && !UNITY_EDITOR && USER_NOTIFICATIONS_API
-			_ISN_RequestPermissions();
+			_ISN_RequestUserNotificationPermissions();
 			#endif
 		}
 
 		public static void AddNotificationRequest(NotificationRequest request, Action<SA.Common.Models.Result> callback) {
-			#if UNITY_IPHONE && !UNITY_EDITOR && USER_NOTIFICATIONS_API
+			
 			string notificationID = request.Id;
 
 			NotificationContent content = request.Content;
@@ -74,7 +83,12 @@ namespace SA.IOSNative.UserNotifications {
 
 			string jsonString = "{" + string.Format ("\"id\" : \"{0}\", \"content\" : {1}, \"trigger\" : {2}", notificationID, request.Content.ToString(), request.Trigger.ToString()) + "}";
 
-			_ISN_ScheduleUserNotification (jsonString);
+			ScheduleUserNotification (jsonString);
+		}
+
+		private static void ScheduleUserNotification(string notificationJSONData) {
+			#if UNITY_IPHONE && !UNITY_EDITOR && USER_NOTIFICATIONS_API
+			_ISN_ScheduleUserNotification (notificationJSONData);
 			#endif
 		}
 
@@ -95,6 +109,19 @@ namespace SA.IOSNative.UserNotifications {
 			#if UNITY_IPHONE && !UNITY_EDITOR && USER_NOTIFICATIONS_API
 			_ISN_GetPendingNotifications ();
 			#endif
+		}
+
+
+		public static SA.IOSNative.UserNotifications.NotificationRequest launchNotification {
+			get {
+				#if (UNITY_IPHONE && !UNITY_EDITOR && APP_CONTROLLER_ENABLED) 
+				string data = _ISN_GetLunchUserNotification ();
+				SA.IOSNative.UserNotifications.NotificationRequest request = new SA.IOSNative.UserNotifications.NotificationRequest(data);
+				return request;
+				#else
+				return new SA.IOSNative.UserNotifications.NotificationRequest();
+				#endif
+			}
 		}
 
 
@@ -129,7 +156,7 @@ namespace SA.IOSNative.UserNotifications {
 		}
 
 		internal static void WillPresentNotification(string data) {
-			NotificationRequest request = new NotificationRequest(data);
+			//NotificationRequest request = new NotificationRequest(data);
 		}
 
 		internal static void PendingNotificationsRequestResponse(string data) {

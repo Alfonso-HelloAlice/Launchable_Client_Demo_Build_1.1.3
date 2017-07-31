@@ -34,8 +34,7 @@ namespace SA.IOSNative.Core {
 		private static extern string _ISN_GetLunchUniversalLink();
 
 
-		[DllImport ("__Internal")]
-		private static extern string _ISN_GetLunchUserNotification();
+	
 		#endif
 
 
@@ -96,17 +95,14 @@ namespace SA.IOSNative.Core {
 		//--------------------------------------
 		//  Launch User Notification Property
 		//--------------------------------------
+
+
 		public static SA.IOSNative.UserNotifications.NotificationRequest launchNotification {
 			get {
-				#if (UNITY_IPHONE && !UNITY_EDITOR && APP_CONTROLLER_ENABLED) 
-				string data = _ISN_GetLunchUserNotification ();
-				SA.IOSNative.UserNotifications.NotificationRequest request = new SA.IOSNative.UserNotifications.NotificationRequest(data);
-				return request;
-				#else
-				return new SA.IOSNative.UserNotifications.NotificationRequest();
-				#endif
+				return SA.IOSNative.UserNotifications.NotificationCenter.launchNotification;
 			}
 		}
+
 
 
 		//--------------------------------------

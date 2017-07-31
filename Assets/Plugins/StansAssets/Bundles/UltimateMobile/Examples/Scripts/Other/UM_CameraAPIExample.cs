@@ -57,6 +57,7 @@ public class UM_CameraAPIExample : BaseIOSFeaturePreview {
 
 
 	void OnImageSaved (UM_ImageSaveResult result) {
+		UM_Camera.Instance.OnImageSaved -= OnImageSaved;
 		if(result.IsSucceeded) {
 			//no image path for IOS
 			MNPopup popup = new MNPopup ("Image Saved", result.imagePath);

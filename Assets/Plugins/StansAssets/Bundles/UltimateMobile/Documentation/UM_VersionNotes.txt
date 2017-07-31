@@ -1,3 +1,14 @@
+10.1/21:
+Overall performance improvements
+Compatibility updates & fixes
+
+Updates:
+Android Native v9.8/21
+iOS Native v9.10/21
+Google Mobile Ads v9.9/21
+WP8 Native v3.6/21
+Amazon Native v2.7/21
+
 10.0/20:
 Overall performance improvements
 Compatibility updates & fixes

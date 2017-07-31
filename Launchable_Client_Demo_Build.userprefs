@@ -1,14 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/GCM/GP_GCM_RegistrationResult.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Features/phoneEmailWeb.cs">
     <Files>
-      <File FileName="Assets/Plugins/StansAssets/Modules/IOSNative/Addons/Soomla/Controllers/ISN_SoomlaGrow.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Features/phoneEmailWeb.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Features/screenShotSharing.cs" Line="1" Column="1" />
-      <File FileName="Assets/Vuforia Video Playback/Scripts/TrackableEventHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Vuforia/Scripts/TurnOffWordBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/StansAssets/Modules/IOSNative/Scripts/Core/IOSNativeSettings.cs" Line="14" Column="1" />
-      <File FileName="Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/GCM/GP_GCM_RegistrationResult.cs" Line="4" Column="1" />
+      <File FileName="Assets/Scripts/Features/phoneEmailWeb.cs" Line="71" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

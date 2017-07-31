@@ -50,16 +50,6 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 			LoadLevel("BillingExample");
 		}
 
-		StartX += XButtonStep;
-		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "iAd App Network")) {
-			LoadLevel("iAdExample");
-		}
-
-		StartX += XButtonStep;
-		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "iAd No Coding Example")) {
-			LoadLevel("iAdNoCodingExample");
-		}
-
 		StartX = XStartPos;
 		StartY += YButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "iCloud")) {

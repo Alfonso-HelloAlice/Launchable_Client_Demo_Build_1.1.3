@@ -167,6 +167,8 @@ typedef NS_ENUM(NSInteger, ZOTransitionType) {
 - (void)setNumberOfDays:(int)numberOfDays;
 @end
 
+#if !TARGET_OS_TV
+
 @interface CalendarPickerController : UINavigationController
 + (instancetype)defaultPicker;
 + (instancetype)initWithStartYear:(NSInteger)calendarStartYear endYear:(NSInteger)calendarEndYear withStartDayIsSunday:(BOOL)startDayIsSunday;
@@ -222,3 +224,4 @@ typedef NS_ENUM(NSInteger, ZOTransitionType) {
 @property CGFloat offset, width;
 
 @end
+#endif

@@ -592,7 +592,7 @@ public class GoogleMobileAdSettingsEditor : Editor {
 		SA.Manifest.ActivityTemplate launcherActivity = application.GetLauncherActivity();
 
 		SA.Manifest.PropertyTemplate targetSdk = Manifest.GetOrCreatePropertyWithTag ("uses-sdk");
-		targetSdk.SetValue ("android:targetSdkVersion", "25");
+		targetSdk.SetValue ("android:targetSdkVersion", "26");
 
 		SA.Manifest.ActivityTemplate AdActivity = application.GetOrCreateActivityWithName("com.google.android.gms.ads.AdActivity");
 		AdActivity.SetValue("android:configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");

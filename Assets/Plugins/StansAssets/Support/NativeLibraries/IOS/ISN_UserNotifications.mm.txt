@@ -108,7 +108,7 @@ static ISN_UserNotifications * un_sharedInstance;
                 components.second = [[triggerDict objectForKey:@"second"] integerValue];
             }
             if ([triggerDict objectForKey:@"minute"] != nil) {
-                components.minute = 6;//[[triggerDict objectForKey:@"minute"] integerValue];
+                components.minute = [[triggerDict objectForKey:@"minute"] integerValue];
             }
             if ([triggerDict objectForKey:@"hour"] != nil) {
                 components.hour = [[triggerDict objectForKey:@"hour"] integerValue];
@@ -128,8 +128,6 @@ static ISN_UserNotifications * un_sharedInstance;
             if ([triggerDict objectForKey:@"quarter"] != nil) {
                 components.quarter = [[triggerDict objectForKey:@"quarter"] integerValue];
             }
-
-            NSLog(@"components %@", components);
 
             trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:repeat];
 		}
@@ -240,7 +238,7 @@ extern "C" {
 	//--------------------------------------
 
 
-	void _ISN_RequestPermissions() {
+	void _ISN_RequestUserNotificationPermissions() {
 		[ISN_UserNotifications.sharedInstance requestPermissions];
 	}
 

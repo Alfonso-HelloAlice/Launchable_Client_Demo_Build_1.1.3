@@ -1,3 +1,5 @@
+#if !TARGET_OS_TV
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // @module IOS Native Plugin
@@ -12,8 +14,10 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+
 #import <Contacts/Contacts.h>
 #import <EventKit/EventKit.h>
+
 #import <CoreLocation/CoreLocation.h>
 
 NSString * const UNITY_SPLITTER = @"|";
@@ -361,3 +365,5 @@ extern "C" {
     }
     
 }
+
+#endif

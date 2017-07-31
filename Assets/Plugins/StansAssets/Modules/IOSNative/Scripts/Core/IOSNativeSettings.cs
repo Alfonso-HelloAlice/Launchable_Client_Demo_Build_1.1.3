@@ -21,7 +21,7 @@ using UnityEditor;
 
 public class IOSNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "9.8/20";
+	public const string VERSION_NUMBER = "9.10/21";
 
 
 	//--------------------------------------

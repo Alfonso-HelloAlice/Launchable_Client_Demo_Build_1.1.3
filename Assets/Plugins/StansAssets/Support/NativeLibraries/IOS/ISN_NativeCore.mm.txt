@@ -525,11 +525,13 @@ UIDatePicker *datePicker;
 }
 
 - (void)pickDate:(int)startYear {
+#if !TARGET_OS_TV
     
     UIViewController *vc =  UnityGetGLViewController();
     UINavigationController *ctrl = [CalendarPickerController defaultPicker];
     
     [vc presentViewController:ctrl animated:YES completion:nil];
+#endif
 }
 
 @end
@@ -1329,6 +1331,8 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
 }
 
 @end
+
+#if !TARGET_OS_TV
 
 @implementation CalendarPickerController
 
@@ -2442,6 +2446,8 @@ static NSString * const MonthInYearViewCellKey6 = @"MonthInYearViewCell6";
 }
 @end
 
+#endif
+
 
 extern "C" {
     
@@ -2733,26 +2739,6 @@ extern "C" {
     
     
     //--------------------------------------
-    //  IOS Native Utility PopUps Plugin Section
-    //--------------------------------------
-    
-    
-    void _MNP_RedirectToAppStoreRatingPage(char* appId) {
-        _ISN_RedirectToAppStoreRatingPage(appId);
-    }
-    
-    
-    void _MNP_ShowPreloader() {
-        _ISN_ShowPreloader();
-    }
-    
-    
-    void _MNP_HidePreloader() {
-        _ISN_HidePreloader();
-    }
-    
-    
-    //--------------------------------------
     //  IOS Native iCloud Section
     //--------------------------------------
     
@@ -2873,27 +2859,6 @@ extern "C" {
         
     }
     
-    
-    //--------------------------------------
-    //  Native PopUps API PopUps Plugin Section
-    //--------------------------------------
-    
-    void _MNP_ShowRateUsPopUp(char* title, char* message, char* b1, char* b2, char* b3) {
-        _ISN_ShowRateUsPopUp(title, message, b1, b2, b3);
-    }
-    
-    
-    void _MNP_ShowDialog(char* title, char* message, char* yes, char* no) {
-        _ISN_ShowDialog(title, message, yes, no);
-    }
-    
-    void _MNP_ShowMessage(char* title, char* message, char* ok) {
-        _ISN_ShowMessage(title, message, ok);
-    }
-    
-    void _MNP_DismissCurrentAlert() {
-        _ISN_DismissCurrentAlert();
-    }
     
     
     //--------------------------------------

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SocialSharingTab : FeatureTab {
 
@@ -11,7 +12,41 @@ public class SocialSharingTab : FeatureTab {
 	
 	public void ShareText() {
 		AndroidSocialGate.OnShareIntentCallback += HandleOnShareIntentCallback;
-		AndroidSocialGate.StartShareIntent("Hello Share Intent", "This is my text to share");
+		AndroidSocialGate.StartShareIntent("Hello Share Intent", "This is my text to share https://d45nf.app.goo.gl/QcRv");
+	}
+
+	public void RequestDynamicLink() {
+		SA.AndroidNative.DynamicLinks.Manager.Instance.OnShortLinkReceived += (result) => {
+			if (result.IsSucceeded) {
+				Debug.Log ("[Short Link] " + result.ShortLink);
+			}
+		};
+
+		SA.AndroidNative.DynamicLinks.Link.Builder builder = new SA.AndroidNative.DynamicLinks.Link.Builder ();
+		builder.SetLink ("https://game_promo")
+			.SetDynamicLinkDomain ("d45nf.app.goo.gl")
+			.SetAndroidParameters (new SA.AndroidNative.DynamicLinks.Link.AndroidParameters.Builder ("com.unionassets.android.plugin.preview")
+				.SetMinimumVersion (1)
+				.Build ())
+			.SetIosParameters (new SA.AndroidNative.DynamicLinks.Link.IosParameters.Builder ("com.example.ios")
+				.SetAppStoreId ("123456789")
+				.SetMinimumVersion ("1.0.1")
+				.Build ())
+			.SetGoogleAnalyticsParameters (new SA.AndroidNative.DynamicLinks.Link.GoogleAnalyticsParameters.Builder ()
+				.SetSource ("preview")
+				.SetMedium ("social")
+				.SetCampaign ("example-promo")
+				.Build ())
+			.SetItunesConnectAnalyticsParameters (new SA.AndroidNative.DynamicLinks.Link.ItunesConnectAnalyticsParameters.Builder ()
+				.SetProviderToken ("123456")
+				.SetCampaignToken ("example-promo")
+				.Build ())
+			.SetSocialMetaTagParameters (new SA.AndroidNative.DynamicLinks.Link.SocialMetaTagParameters.Builder ()
+				.SetTitle ("Example of a Dynamic Link")
+				.SetDescription ("This link works whether the app is installed or not!")
+				.Build ());
+
+		SA.AndroidNative.DynamicLinks.Manager.Instance.RequestShortDynamicLink (builder.Build());
 	}
 	
 	void HandleOnShareIntentCallback (bool status, string package)

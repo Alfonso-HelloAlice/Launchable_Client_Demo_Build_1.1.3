@@ -1,3 +1,27 @@
+v4.7/21:
+NEW! Firebase Analytics added!
+
+Overall performance improvements
+Compatibility updates & fixes
+
+v4.6/20:
+Overall performance improvements
+Compatibility updates & fixes
+
+v4.5/19:
+Overall performance improvements
+Compatibility updates & fixes
+
+v4.3/17:
+Overall performance improvements
+Compatibility updates & fixes
+
+v4.2
+SetUserId method fixed
+IEnumerator SendAnalytics method improved
+Requests Cache improvements. Cache queue added
+
+
 v4.1:
 Overall performance improvements
 Compatibility updates & fixes

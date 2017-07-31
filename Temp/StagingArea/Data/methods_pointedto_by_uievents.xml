@@ -1,0 +1,36 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="phoneEmailWeb">
+			<method name="Email_Caleb"/>
+			<method name="Phone_Launchable"/>
+			<method name="Email_Dollar"/>
+			<method name="Phone_Edgefactory"/>
+			<method name="Phone_Transient"/>
+			<method name="Phone_MattThomas"/>
+			<method name="Email_Edgefactory"/>
+			<method name="Phone_Dollar"/>
+			<method name="Email_TechLaw"/>
+			<method name="Phone_Timbr"/>
+			<method name="Email_Ghost"/>
+			<method name="Email_Transient"/>
+			<method name="Email_Launchable"/>
+			<method name="Email_PALS"/>
+			<method name="Email_Timbr"/>
+			<method name="Phone_PALS"/>
+			<method name="Email_Grow"/>
+			<method name="Email_Parker"/>
+			<method name="Email_MattThomas"/>
+		</type>
+		<type fullname="screenShotSharing">
+			<method name="backToInterface"/>
+			<method name="takeOutButtonFirst"/>
+			<method name="savePicToGallery"/>
+			<method name="captureScreen"/>
+			<method name="postTextureTwitter"/>
+			<method name="postTextureFB"/>
+		</type>
+		<type fullname="flashLightController">
+			<method name="ToggleTorch"/>
+		</type>
+	</assembly>
+</linker>

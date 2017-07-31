@@ -22,9 +22,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 	public Button bt1;
 	public Button bt2;
 
-	private Animator ph;
-	private Animator em;
-
 	private bool testing;
 
     #endregion // PRIVATE_MEMBERS
@@ -33,8 +30,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region MONOBEHAVIOUR_METHODS
     void Start()
     {
-		ph = bt1.gameObject.GetComponent<Animator> ();
-		em = bt2.gameObject.GetComponent<Animator> ();
+
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
@@ -95,11 +91,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
-		testing = GameObject.FindObjectOfType<screenShotSharing> ().noAnimation;
-		print ("this is current value from other " + testing);
-
-		ph.Play ("phoneAnimation", -1, 0f);
-		em.Play ("emailAnimation", -1, 0f);
 
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
@@ -154,16 +145,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
             }
         }
 
-		if (testing == false) {
-			ph.gameObject.SetActive (true);
-			em.gameObject.SetActive (true);
-
-			ph.Play ("phoneAnimation");
-			em.Play ("emailAnimation");
-		} else if (testing == true) {
-			ph.gameObject.SetActive (false);
-			em.gameObject.SetActive (false);
-		}
+	
 
 
         mHasBeenFound = true;
@@ -194,9 +176,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         {
             component.enabled = false;
         }
-			
-		ph.Play ("phoneAnimation", -1, 0f);
-		em.Play ("emailAnimation", -1, 0f);
 
         mLostTracking = true;
         mSecondsSinceLost = 0;

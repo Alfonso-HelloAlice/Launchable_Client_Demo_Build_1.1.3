@@ -241,6 +241,15 @@ public class IOSNativePostProcess  {
 
 			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSPhotoLibraryUsageDescription);
 
+
+			var NSPhotoLibraryAddUsageDescription =  new SA.IOSDeploy.Variable();
+			NSPhotoLibraryAddUsageDescription.Name = "NSPhotoLibraryAddUsageDescription";
+			NSPhotoLibraryAddUsageDescription.StringValue = IOSNativeSettings.Instance.PhotoLibraryUsageDescription;
+			NSPhotoLibraryAddUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
+
+
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSPhotoLibraryAddUsageDescription);
+
 		}
 
 		if(IOSNativeSettings.Instance.EnableReplayKit) {
@@ -277,7 +286,7 @@ public class IOSNativePostProcess  {
 
 			var NSContactsUsageDescription =  new SA.IOSDeploy.Variable();
 			NSContactsUsageDescription.Name = "NSContactsUsageDescription";
-			NSContactsUsageDescription.StringValue = IOSNativeSettings.Instance.CameraUsageDescription;
+			NSContactsUsageDescription.StringValue = IOSNativeSettings.Instance.ContactsUsageDescription;
 			NSContactsUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
 
 
