@@ -19,10 +19,11 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     private bool mLostTracking;
     private float mSecondsSinceLost;
 
-	public Button bt1;
-	public Button bt2;
-
-	private bool testing;
+	public Button phoneButton;
+	public Button emailButton;
+	private bool capture;
+	private Animator phone;
+	private Animator email;
 
     #endregion // PRIVATE_MEMBERS
 
@@ -30,7 +31,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region MONOBEHAVIOUR_METHODS
     void Start()
     {
-
 
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
@@ -91,7 +91,20 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
+		// screen caputre value
+		capture = GameObject.FindObjectOfType<screenShotSharing> ().noAnimation;
 
+		// if there is phone button get the animator components and rest the animation
+		if (phoneButton != null) {
+			phone = phoneButton.gameObject.GetComponent<Animator> ();
+			phone.Play ("phoneAnimation", -1, 0f);
+		}
+		// if there is email button get the animator components and rest the animation
+		if (emailButton != null) {
+			email = emailButton.gameObject.GetComponent<Animator> ();
+			email.Play ("emailAnimation", -1, 0f);
+		}
+			
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
         Collider[] colliderComponents = GetComponentsInChildren<Collider>();
 		Canvas [] canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -144,10 +157,28 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
                 }
             }
         }
-
-	
-
-
+			
+		// if the screen is not been capture
+		if (capture == false) {
+			// active the button and play animation
+			if (phoneButton != null) {
+				phone.gameObject.SetActive (true);
+				phone.Play ("phoneAnimation");
+			}
+			if (emailButton != null) {
+				email.gameObject.SetActive (true);
+				email.Play ("emailAnimation");
+			}
+		// if the screen is been captured diactive button
+		} else if (capture == true) {
+			if (phoneButton != null) {
+				phone.gameObject.SetActive (false);
+			}
+			if (emailButton != null) {
+				email.gameObject.SetActive (false);
+			}
+		}
+			
         mHasBeenFound = true;
         mLostTracking = false;
     }
