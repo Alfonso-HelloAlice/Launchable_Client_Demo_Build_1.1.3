@@ -18,16 +18,17 @@ public class screenShotSharing : MonoBehaviour {
 
 
 	public GameObject launchable;
-	public GameObject line;
+	// public GameObject line;
 	public GameObject findTarget;
 	public GameObject flash;
-
 	public GameObject ImageHolder;
 
 //	public GameObject _PanelCoaching1;
 //	public GameObject _PanelCoaching2;
 //	public GameObject _PanelCoaching3;
 
+	public Button currentPhone;
+	public Button currentEmail;
 
 	private GUIStyle style;
 	private GUIStyle style2;
@@ -36,6 +37,7 @@ public class screenShotSharing : MonoBehaviour {
 	private Texture2D border;
 
 	public bool noAnimation;
+	public bool noPhoneEmailButtons;
 
 //	analyticsController analyticsControl;
 			
@@ -91,7 +93,7 @@ public class screenShotSharing : MonoBehaviour {
 	private void disableInterface()
 	{
 		launchable.SetActive (false);
-		line.SetActive (false);
+		// line.SetActive (false);
 		findTarget.SetActive (false);
 		flash.gameObject.SetActive (false);
 	}
@@ -99,7 +101,7 @@ public class screenShotSharing : MonoBehaviour {
 	private void activeInterface ()
 	{
 		launchable.SetActive (true);
-		line.SetActive (true);
+		// line.SetActive (true);
 		findTarget.SetActive (true);
 		flash.SetActive (true);
 	}
@@ -127,6 +129,7 @@ public class screenShotSharing : MonoBehaviour {
 	public void captureScreen()
 	{
 		noAnimation = true;
+		noPhoneEmailButtons = true;
 		StartCoroutine ("Capture");
 	}
 
@@ -135,6 +138,15 @@ public class screenShotSharing : MonoBehaviour {
 		disableInterface ();
 		disableALLButtons ();
 
+		if(currentPhone != null){
+			currentPhone.gameObject.SetActive (false);
+			print ("phone should be gone now");
+		}
+		if (currentEmail != null) {
+			currentEmail.gameObject.SetActive (false);
+			print ("email should be gone now");
+		}
+			
 		yield return new WaitForEndOfFrame();
 
 		screenCap.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
@@ -199,17 +211,18 @@ public class screenShotSharing : MonoBehaviour {
 		twitter.gameObject.SetActive (false);
 
 		noAnimation = false;
+		noPhoneEmailButtons = false;
 	}
 
 	// facebook sharing
 	public void postTextureFB(){
-		UM_ShareUtility.FacebookShare("#Launchable #AR", screenCap);
+		UM_ShareUtility.FacebookShare("#Launchable" + "#AR", screenCap);
 //		analyticsControl.screenshotShare("facebook");
 	}
 
 	// twitter sharing
 	public void postTextureTwitter() {
-		UM_ShareUtility.TwitterShare("#Launchable #AR", screenCap);
+		UM_ShareUtility.TwitterShare("#Launchable" + "#AR", screenCap);
 //		analyticsControl.screenshotShare("twitter");
 	}
 		

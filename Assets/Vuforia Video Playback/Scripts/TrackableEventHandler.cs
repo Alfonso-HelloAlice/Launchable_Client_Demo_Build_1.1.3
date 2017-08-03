@@ -21,9 +21,16 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
 	public Button phoneButton;
 	public Button emailButton;
+
 	private bool capture;
+    private bool newCapture;
 	private Animator phone;
 	private Animator email;
+
+	public Button ph;
+	public Button em;
+
+
 
     #endregion // PRIVATE_MEMBERS
 
@@ -93,14 +100,21 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     {
 		// screen caputre value
 		capture = GameObject.FindObjectOfType<screenShotSharing> ().noAnimation;
+        newCapture = GameObject.FindObjectOfType<screenShotSharing> ().noPhoneEmailButtons;
+		GameObject.FindObjectOfType<screenShotSharing> ().currentPhone = phoneButton;
+		GameObject.FindObjectOfType<screenShotSharing> ().currentEmail = emailButton;
+
+        print("this is the noPhoneEmailButtons" + newCapture);
 
 		// if there is phone button get the animator components and rest the animation
 		if (phoneButton != null) {
+			ph = phoneButton;
 			phone = phoneButton.gameObject.GetComponent<Animator> ();
 			phone.Play ("phoneAnimation", -1, 0f);
 		}
 		// if there is email button get the animator components and rest the animation
 		if (emailButton != null) {
+			em = emailButton;
 			email = emailButton.gameObject.GetComponent<Animator> ();
 			email.Play ("emailAnimation", -1, 0f);
 		}
@@ -130,7 +144,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
         Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
         // Optionally play the video automatically when the target is found
-
         VideoPlaybackBehaviour video = GetComponentInChildren<VideoPlaybackBehaviour>();
         if (video != null && video.AutoPlay)
         {
