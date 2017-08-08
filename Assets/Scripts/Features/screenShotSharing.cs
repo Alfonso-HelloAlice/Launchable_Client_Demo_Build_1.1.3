@@ -13,15 +13,15 @@ public class screenShotSharing : MonoBehaviour {
 	public Button capture;
 	public Button save;
 	public Button cancel;
+	public Button bigCancel;
 	public Button facebook;
 	public Button twitter;
 
-
 	public GameObject launchable;
-	// public GameObject line;
 	public GameObject findTarget;
 	public GameObject flash;
 	public GameObject ImageHolder;
+	public GameObject bigFlash;
 
 //	public GameObject _PanelCoaching1;
 //	public GameObject _PanelCoaching2;
@@ -93,7 +93,7 @@ public class screenShotSharing : MonoBehaviour {
 	private void disableInterface()
 	{
 		launchable.SetActive (false);
-		// line.SetActive (false);
+		bigFlash.SetActive (false);
 		findTarget.SetActive (false);
 		flash.gameObject.SetActive (false);
 	}
@@ -101,7 +101,7 @@ public class screenShotSharing : MonoBehaviour {
 	private void activeInterface ()
 	{
 		launchable.SetActive (true);
-		// line.SetActive (true);
+		bigFlash.SetActive (true);
 		findTarget.SetActive (true);
 		flash.SetActive (true);
 	}
@@ -111,6 +111,7 @@ public class screenShotSharing : MonoBehaviour {
 		capture.gameObject.SetActive (false);
 		save.gameObject.SetActive (false);
 		cancel.gameObject.SetActive (false);
+		bigCancel.gameObject.SetActive (false);
 		facebook.gameObject.SetActive (false);
 		twitter.gameObject.SetActive (false);
 	}
@@ -119,6 +120,7 @@ public class screenShotSharing : MonoBehaviour {
 	{
 		save.gameObject.SetActive (true);
 		cancel.gameObject.SetActive (true);
+		bigCancel.gameObject.SetActive (true);
 		facebook.gameObject.SetActive (true);
 		twitter.gameObject.SetActive (true);
 	}
@@ -216,13 +218,13 @@ public class screenShotSharing : MonoBehaviour {
 
 	// facebook sharing
 	public void postTextureFB(){
-		UM_ShareUtility.FacebookShare("#Launchable" + "#AR", screenCap);
+		UM_ShareUtility.FacebookShare("@thebridebox " + "#thebridebox", screenCap);
 //		analyticsControl.screenshotShare("facebook");
 	}
 
 	// twitter sharing
 	public void postTextureTwitter() {
-		UM_ShareUtility.TwitterShare("#Launchable" + "#AR", screenCap);
+		UM_ShareUtility.TwitterShare("@thebridebox " + "#thebridebox", screenCap);
 //		analyticsControl.screenshotShare("twitter");
 	}
 		

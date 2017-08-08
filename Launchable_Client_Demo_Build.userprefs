@@ -1,10 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Features/screenShotSharing.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/Android/AndroidManifest.xml">
     <Files>
-      <File FileName="Assets/Scripts/Features/screenShotSharing.cs" Line="162" Column="3" />
-      <File FileName="Assets/Scripts/Features/phoneEmailWeb.cs" Line="71" Column="2" />
-      <File FileName="Assets/Vuforia Video Playback/Scripts/TrackableEventHandler.cs" Line="183" Column="35" />
+      <File FileName="Assets/Plugins/Android/AndroidManifest.xml" Line="5" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
